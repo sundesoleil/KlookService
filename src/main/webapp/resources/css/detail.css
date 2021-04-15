@@ -49,6 +49,7 @@
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	margin-top: 20px;
+	margin-bottom: 30px;
 	padding: 40px;
 	color: #5b5b5b;
 }
@@ -76,18 +77,20 @@
 	font-size: 16px;
 	margin-bottom: 10px;
 }
-.bookingDate{
+#datePicker{
 	background-color: #F44F1B;
 	color:#fff;
 	padding: 10px;
 	width: 20%;
 	text-align:center;
+	border: 0;
 	border-radius: 5px;
 }
-.price > p:nth-child(1){
+#datePicker::placeholder{
+	color:#fff;
 	font-size: 14px;
-	margin-bottom: 10px;
 }
+
 .price > p > span:nth-child(1){
 	font-size: 24px;
 	font-weight: 500;
@@ -114,7 +117,7 @@
 	color: #999;
 	padding: 3px 7px;
 	border-radius: 10px;
-	border: 1px solid #999;
+ 	border: 1px solid #999; 
 }
 .point{
 	margin-top: 20px;
@@ -127,31 +130,27 @@
 }
 .detail_info{
 	padding: 10px 0;
-	border-top: 1px solid #ccc;
 	font-size: 14px;
 }
 .row{
+	display:flex;
+	justify-content:space-between;
 	background-color: #fff;
  	overflow: hidden;
 	padding: 20px 0;
 	margin-top: 20px;
-}
-
-.row > div:nth-child(1){
-	width: 150px;
 	color: #777;
 }
-.row > div:nth-child(2){
-	width: calc(100% - 150px);
-	line-height: 1.5;
-}
-.row p:last-child{
-	font-size: 12px;
+.row div:first-child{
+	margin-left: 20px;
 	margin-top: 5px;
-	color: #666;
+	font-weight: 600;
+}
+.row div:nth-child(2){
+	margin-right: 20px;
 }
 .row button{
-	background-color: #fff;
+	background-color: #F5F5F5;
 	border: 0;
 	padding: 0;
 	margin: 0;
@@ -161,7 +160,6 @@
 }
 .row div > *{
 	vertical-align: middle;
-	
 }
 .row #decrease{
 	border: 1px solid #ccc;
@@ -174,7 +172,7 @@
 	float: left;
 }
 .row .total{
-	border: 1px solid #ccc;
+ 	border: 1px solid #ccc; 
 	display: inline-block;
 	height: 28px;
 	width: 28px;
@@ -186,13 +184,14 @@
 	border-right: 0;
 }
 .detail_info .last{
-	border-bottom: 1px solid #ccc;
+  	border-bottom: 1px solid #ccc; 
 }
 .final_price_area{
 	padding: 20px 0;
 }
 .final_price, .final_point{
 	text-align: right;
+
 }
 .final_price span:nth-child(1){
 	font-size: 12px;
@@ -224,17 +223,23 @@
 	font-weight: 500;
 }
 .button_area{
-	overflow: hidden;
+	overflow: hidden; 
+	margin-top: 15px;
+	display:flex;
+	justify-content:flex-end;
 }
+
 .button_area button{
-	float: left;
-	height: 48px;
-	border: 1px solid #5f0080;
+	float: right;
+	height: 35px;
+	border: 0;
 	font-weight: 500;
-	font-family: 'Noto Sans KR';
+	font-family: 'ELAND_Choice_M';
 	border-radius: 5px;
-	font-size: 16px;
-}
+	font-size: 12px;
+	color:#fff;
+	cursor:pointer;
+} 
 #add_alarm, #add_mark{
 	width: calc(25% - 20px);
 	margin-right: 20px;
@@ -242,9 +247,11 @@
 	color: #5f0080;
 }
 #add_cart{
-	width: 50%;
-	background-color: #5f0080;
-	color: #fff;
+	background-color: #FF9B20;
+	margin-right: 10px;
+}
+#direct_booking{
+	background-color: #F44F1B;
 }
 #add_alarm{
 	opacity: 0.3;
@@ -254,6 +261,6 @@
 	margin-bottom: 10px;
 	text-decoration: line-through;
 }
-.price_calc{
+.price_calc, .point_calc{
 	display:none;
-}
+} 

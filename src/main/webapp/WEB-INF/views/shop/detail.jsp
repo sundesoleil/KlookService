@@ -8,15 +8,20 @@
 	<meta charset="UTF-8">
 	<title>클룩 KLOOK - 쉽고 빠른 전국 액티비티 예약</title>
 	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
 	<script src="/resources/js/detail.js"></script>
 	<link rel="icon" href="/resources/images/favicon.png" />
 	<link rel="stylesheet" href="/resources/css/reset.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.structure.min.css" integrity="sha512-oM24YOsgj1yCDHwW895ZtK7zoDQgscnwkCLXcPUNsTRwoW1T1nDIuwkZq/O6oLYjpuz4DfEDr02Pguu68r4/3w==" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css" integrity="sha512-9h7XRlUeUwcHUf9bNiWSTO9ovOWFELxTlViP801e5BbwNJ5ir9ua6L20tEroWZdm+HFBAWBLx2qH4l4QHHlRyg==" crossorigin="anonymous" />
 	<link rel="stylesheet" href="/resources/css/detail.css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 </head>
 <body>
 	<%@include file="/WEB-INF/views/includes/header.jsp" %>
 	<div class="main">
+	
 		<section class="prod_detail_area">
 			<div class="prod_img_box">
 				<img src="/images/${product.kpi_uri }" />
@@ -43,10 +48,7 @@
 				<div class="price">
 					<p id="price_title">날짜 및 매수 선택</p>
 					<p id="booking_title">예약을 원하시는 날짜를 선택하세요</p>
-					<div class="bookingDate">
-					<i class="fas fa-calendar"></i> 이용 가능 날짜 확인하기
-					</div>
-				
+					<input type="text" id="datePicker" autocomplete="off" placeholder="이용 가능 날짜 확인하기"/>
 				<div class="price_calc">
 					<c:if test="${product.kp_discount == 1 }">
 						<p>회원할인가</p>
@@ -63,17 +65,18 @@
 					</c:if>
 				</div>
 				
+				<div class="point_calc">
 				<c:if test="${product.kp_point_rate != null }">
 					<div class="point">
 						<span>첫 구매 ${product.kp_point_rate }%</span>
 						<span>1매당 <b id="point" data-value="${product.pointInt }">${product.point}</b>원 적립</span>
 					</div>
 				</c:if>
-
+				</div>
 		
 				<div class="detail_info last">
 					<div class="row">
-						<div>구매수량</div>
+						<div>인원</div>
 						<div>
 							<button id="decrease">
 								<i class="fas fa-minus"></i>
@@ -87,21 +90,24 @@
 						</div>
 					</div>
 				</div>
-				<div class="final_price_area">
-					<div class="final_price">
-						<span>총 상품 금액:</span>
-						<span>9999</span>
-						<span>원</span>
-					</div>	
+				
+					<div class="final_price_area">
+						<div class="final_price">
+							<span>총 상품 금액:</span>
+							<span>9999</span>
+							<span>원</span>
+						</div>	
 						<div class="final_point">
-								<span>적립</span>
-								<span>구매 시 <b>0</b>원 적립</span>
-						</div>
-
-				</div>
-				<div class="button_area">
-					<button id="add_cart">장바구니 담기</button>
-				</div>
+							<span>적립</span>
+							<span>구매 시 <b>0</b>원 적립</span>
+						</div>	
+					</div>
+					<div class="button_area">
+						<button id="add_cart">장바구니 담기</button>
+						<button id="direct_booking">바로 예약하기</button>
+					</div>
+			
+				
 			</div>
 			</div>
 			</div>
