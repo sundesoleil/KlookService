@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klook.mapper.MemberMapper">
+	<select id="memberLogin" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM kl_member WHERE km_email=#{email} AND km_pwd=#{pwd}
+	</select>
+	<select id="selectSimpleMemberInfo" resultType="com.klook.vo.SimpleMemberVO">
+		SELECT km_email AS email, km_name AS name
+		FROM kl_member
+		WHERE km_email=#{email} AND km_pwd=#{pwd} 
+	</select>
+	<insert id="insertMemberInfo">
+		INSERT INTO kl_member(
+			km_email,
+			km_pwd, 
+			km_name,
+			km_phone, 
+			km_terms_agree,
+			km_info_agree
+		)
+		VALUES(
+			#{km_email},
+			#{km_pwd},
+			#{km_name},
+			#{km_phone},
+			#{km_terms_agree},
+			#{km_info_agree}
+		)
+	</insert>
+	<select id="selectUserCntByEmail" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM kl_member 
+		WHERE km_email=#{email}
+	</select>
+</mapper>

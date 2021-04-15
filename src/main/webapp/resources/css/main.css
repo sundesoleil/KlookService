@@ -1,0 +1,249 @@
+/*main.css*/
+.main_banner_wrap{
+	width: 100%;
+	height: 570px;
+/* 	position:relative;
+	overflow:hidden; */
+	min-width: 1050px;
+}
+.ad_banner_area{
+ 	position:relative; 
+	margin-top: 100px;
+	margin-bottom: 0;
+}
+.ad_banner_area:hover{
+	opacity:1;
+} 
+.ad_banner_wrap{
+	width: 100%;
+	height: 250px;
+	position:relative;
+	overflow:hidden;
+/* 	min-width: 1050px; */
+}
+.ad_item{
+	width: 100%;
+	height: 250px;
+	position:absolute;
+	left: 100%;
+	top: 0;
+	overflow:hidden;
+}
+.ad_item img{
+	position: absolute;
+	left: 50%;
+	margin-left: -550px;
+}
+.ad_item:first-child{
+	left: 0;
+}
+.banner_item{
+	width: 100%;
+	height: 570px;
+/* 	position:absolute; */
+	left: 100%;
+	top: 0;
+/* 	overflow:hidden; */
+}
+.banner_item img{
+	position: relative;
+/* 	left: 100%; */
+/* 	margin-left: -950px; */
+}
+.banner_item span{
+	position:absolute;
+	color:#fff;
+	font-size: 50px;
+	font-weight: 600;
+	top: 40%;
+	left: 40%;
+}
+.banner_item p{
+	position:absolute;
+	margin-top: 20px;
+	font-size: 20px;
+	top: 50%;
+	left: 40%;
+	color:#fff;
+}
+.search_area{
+	position:absolute;
+	font-size: 20px;
+	left: 40%;
+	margin-top: 350px;
+	margin-left: 100px;
+}
+
+.banner_item:first-child{
+	left: 0;
+}
+.banner_btn_area button{
+	background-color: transparent;
+	border:0;
+	padding:0;
+}
+.main_banner_area{
+	position:relative;
+}
+
+.banner_btn_area{
+	width: 500px;
+	position: absolute;
+	height: 0;
+	left: 50%;
+	margin-left:-200px;
+	margin-top: -26px;
+	opacity:1;
+	transition:opacity 0.5s;
+}
+.main_banner_area:hover .banner_btn_area{
+	opacity:1;
+} 
+.banner_btn_area #prev{
+	position:absolute;
+	top: -150px;
+	left: -280px;
+}
+.banner_btn_area #next{
+	position:absolute;
+	top: -150px;
+	right:-280px;
+}
+.item_list_wrap{
+	width: 1050px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+.item_list_area{
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+.item_list_area > h1{
+	font-size: 28px;
+	font-weight: 500;
+	text-align:center;
+	color: #434343;
+}
+
+.prod_item {
+	width: 300px;
+	height: 350px;
+}
+.city_item{
+	position:relative;
+	width: 300px;
+	height: 350px;
+	background-size: 103%;
+	margin-inline:10px;
+	cursor:pointer;
+}
+.city_item p{
+	position:absolute;
+	color:#fff;
+	font-size: 30px;
+	font-weight: 600;
+	top: 50%;
+	left:40%;
+}
+.city_item:first-child{
+	background-image: url("/resources/images/seoul.jpg");
+}
+.city_item:nth-child(2){
+	background-image: url("/resources/images/jeju.jpg");
+}
+.city_item:nth-child(3){
+	background-image: url("/resources/images/busan.jpg");
+}
+.city_item:nth-child(4){
+	background-image: url("/resources/images/gyeongju.jpg");
+}
+.city_item:nth-child(5){
+	background-image: url("/resources/images/gangwon.jpg");
+}
+.city_item:nth-child(6){
+	background-image: url("/resources/images/jeonju.jpg");
+}
+.city_item:nth-child(7){
+	background-image: url("/resources/images/daegu.jpg");
+}
+.city_item:nth-child(8){
+	background-image: url("/resources/images/ulleng.jpg");
+}
+.prod_item .prod_item_img{
+	width: 300px;
+	height: 150px;
+	background-position:center;
+	background-image: url("/resources/images/DM_20210324195650_008.JPEG");
+	background-size: 105%;
+	transition: background-size 0.5s;
+}
+.prod_item .prod_item_img:hover{
+	background-size: 103%;
+}
+.prod_item_title{
+	margin-top: 15px;
+}
+.prod_item_price i{
+	color:#fa622f;
+	margin-left: 5px;
+	font-size: 15px;
+}
+.prod_item_price{
+	margin-top: 15px;
+	font-weight: 700;
+}
+.prod_item_price .prod_discount{
+	margin-right: 5px;
+	color: #fa622f;
+}
+.prod_origin_price{
+	margin-top: 10px;
+	font-size: 14px;
+	color: #aaa;
+	text-decoration:line-through;
+}
+/* .prod_item {
+	float: left;
+	margin-right: 16.66666px;
+}
+.prod_item:nth-child(4n){
+	margin-right: 0;
+} */
+.slick-prev:before, .slick-next:before{
+	font-size: 0;
+	content: "";
+	width: 60px;
+	height: 60px;
+	display: inline-block;
+	filter: drop-shadow(0 0 5px rgba(0,0,0,0.3));
+}
+.slick-prev:before{
+	background-image: url("/resources/images/DM_20210324195651_094.PNG");
+}
+.slick-next:before{
+	background-image: url("/resources/images/DM_20210324195651_095.PNG");
+}
+.slick-prev, .slick-next{
+	top: 150px;
+	z-index: 999;
+}
+.slick-prev{
+	left: -30px;
+}
+.slick-next{
+	right: 20px;
+}
+.prod_item{
+	outline:none;
+}
+.slick-prev.slick-disabled:before, .slick-next.slick-disabled:before{
+	display:none;
+}
+.prod_sub_title{
+	text-align: center;
+	margin-top: 10px;
+	color: #999999;
+}
+.main section:nth-child(odd){
+	background-color: #F7F7F7;
+}

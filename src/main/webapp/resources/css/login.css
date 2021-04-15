@@ -1,0 +1,77 @@
+/* login.css */
+.login_area{
+	padding: 100px 0;
+	width: 300px;
+	margin: 0 auto;
+}
+.login_area > input{
+	width: 100%;
+	font-family: "Noto Sans KR";
+	box-sizing: border-box;
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	outline: none;
+	font-size: 14px;
+}
+.login_area > input:focus{
+	border-color: #000;
+}
+.login_area > input::placeholder{
+	color: #b9b9b9;
+}
+.login_area > h1{
+	font-size: 18px;
+	font-weight: 500;
+	color: #434343;
+	text-align: center;
+	margin-bottom: 30px;
+}
+#secure_login{
+	display: none;
+}
+#secure_icon{
+	display:inline-block;
+	width: 15px;
+	height: 15px;
+	border: 1px solid #000;
+	border-radius: 3px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 14px;
+	color: #fff;
+}
+#secure_login:checked+#secure_icon{
+	background-color: #ff5722;
+}
+#secure_text{
+	font-size: 14px;
+}
+#login, #join{
+	display: block;
+	text-align: center;
+	width: 100%;
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 5px;
+	border: 1px solid #ff5722;
+	margin-top: 10px;
+	outline: none;
+	text-decoration:none;
+}
+#login:hover, #join:hover{
+	cursor:pointer;
+}
+#login{
+	background-color: #ff5722;
+	color: #fff;
+}
+#join{
+	background-color: #fff;
+	color: #ff5722;
+}
+.options_area{
+	margin-bottom: 20px;
+}
