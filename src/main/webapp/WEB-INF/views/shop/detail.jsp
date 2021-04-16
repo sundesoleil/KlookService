@@ -32,9 +32,13 @@
 				</p>
 				<p class="prod_name">
 				${product.kp_name }
-				<c:if test="${product.kp_rate != null }">
-					<i class="fas fa-star"></i><span> ${product.kp_rate }</span>
+				<c:if test="${product.rate != null }">
+					<i class="fas fa-star"></i>
+					<span> ${product.rate }</span>
 				</c:if>
+				<c:if test="${product.rate == null }">
+					<span> 아직 평점이 없습니다 :(</span>
+				</c:if> 
 				</p>
 					<p class="prod_description">${product.kp_description }</p>
 				<p class="prod_notice">
@@ -67,6 +71,12 @@
 				
 				<div class="point_calc">
 				<c:if test="${product.kp_point_rate != null }">
+					<div class="point">
+						<span>첫 구매 ${product.kp_point_rate }%</span>
+						<span>1매당 <b id="point" data-value="${product.pointInt }">${product.point}</b>원 적립</span>
+					</div>
+				</c:if>
+				<c:if test="${product.kp_point_rate == null }">
 					<div class="point">
 						<span>첫 구매 ${product.kp_point_rate }%</span>
 						<span>1매당 <b id="point" data-value="${product.pointInt }">${product.point}</b>원 적립</span>
@@ -106,12 +116,54 @@
 						<button id="add_cart">장바구니 담기</button>
 						<button id="direct_booking">바로 예약하기</button>
 					</div>
-			
-				
-			</div>
-			</div>
-			</div>
+				</div>
+				<div class="review_area">
+					<div class="review_title"><i class="fas fa-check"></i> 최신후기</div>
+					<div class="review_list">
+						<c:forEach items="${reviewList }" var="review">
+						<div class="review_item">
+							<div class="review_user">
+								<img id="user_icon" src="/resources/images/user.png" />
+								<p>${review.member_name }</p>
+							</div>	
+							<div class="review_content">
+								<c:forEach var="rating" items="${ ratingOptions }" varStatus="status" begin="1" end="${ review.kr_rate }">
+										<i class="fas fa-star" id="rating"></i>
+								</c:forEach> 
+									<span id="kr_title">${review.kr_title}</span>
+									<p id="kr_content">${review.kr_content }</p>
+									<div><fmt:formatDate value="${review.kr_reg_date }" pattern="yyyy년 MM월 dd일" /></div>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+					<button id="all_review">
+						<i class="fas fa-angle-right"></i> 모든 리뷰 확인하기
+					</button>
+					<div class="all_review_list">
+							<c:forEach items="${allReviewList }" var="review">
+							<div class="review_item">
+								<div class="review_user">
+									<img id="user_icon" src="/resources/images/user.png" />
+									<p>${review.member_name }</p>
+								</div>	
+								<div class="review_content">
+									<c:forEach var="rating" items="${ ratingOptions }" varStatus="status" begin="1" end="${ review.kr_rate }">
+											<i class="fas fa-star" id="rating"></i>
+									</c:forEach> 
+										<span id="kr_title">${review.kr_title}</span>
+										<p id="kr_content">${review.kr_content }</p>
+										<div><fmt:formatDate value="${review.kr_reg_date }" pattern="yyyy년 MM월 dd일" /></div>
+									</div>
+								</div>
+							</c:forEach>
+					</div>
+					<button id="all_review_hide" style="display:none;">
+						<i class="fas fa-angle-right"></i> 리뷰 목록 접기
+					</button>
+				</div>	
 		</section>
+	</div>
 	<%@include file="/WEB-INF/views/includes/footer.jsp" %>
 </body>
 </html>

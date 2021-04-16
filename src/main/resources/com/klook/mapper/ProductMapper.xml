@@ -7,35 +7,9 @@
 		DESC LIMIT #{LIMIT}
 	</select>
 	<select id="selectProduct" resultType="com.klook.vo.ProductVO">
-<!-- 		SELECT * FROM
+
+		SELECT i.*, j.rate AS rate FROM
 		(
-		SELECT * FROM kl_product a
-		INNER JOIN
-		(
-			SELECT MAX(kpi_seq) AS kpi_seq, kpi_uri, kpi_prod_seq
-			FROM kl_product_img
-			WHERE kpi_prod_seq = #{seq}
-		)b
-		ON a.kp_seq = b.kpi_prod_seq
-		)c
-		INNER JOIN kl_city d
-		ON c.kp_city_seq = d.kc_seq  -->
-<!-- 		SELECT e.*, f.kc_name AS city_name FROM
-		(
-		SELECT c.*, d.kmc_name AS main_category_name FROM
-		(
-			SELECT a.*, b.ksc_name AS sub_category_name
-			FROM kl_product a
-			INNER JOIN 
-			kl_sub_category b
-			ON a.kp_sc_seq = b.ksc_seq
-		)c 
-		INNER JOIN kl_main_category d
-		ON c.kp_mc_seq = d.kmc_seq
-		)e
-		INNER JOIN kl_city f
-		ON e.kp_city_seq = f.kc_seq
-		WHERE kp_seq = #{seq} -->
 		SELECT g.*, h.ksc_name AS sub_cate_name FROM
 		(
 		SELECT e.*, f.kmc_name AS main_cate_name FROM
@@ -59,38 +33,18 @@
 		)g
 		INNER JOIN kl_sub_category h
 		ON g.kp_sc_seq = h.ksc_seq
+		)i
+		INNER JOIN(
+			SELECT round(SUM(kr_rate)/COUNT(kr_rate),2) as rate, kr_prod_seq
+			FROM kl_review
+			WHERE kr_prod_seq = #{seq}
+		)j
+		ON i.kp_seq = j.kr_prod_seq
 	</select>
 	<select id="selectProductBySeq" resultType="com.klook.vo.ProductVO">
-<!-- 	SELECT * FROM
-	(
-	SELECT * FROM kl_product a
-	INNER JOIN
-	(
-		SELECT MAX(kpi_seq) AS kpi_seq, kpi_uri, kpi_prod_seq
-		FROM kl_product_img
-		WHERE kpi_prod_seq = #{seq}
-	)b
-	ON a.kp_seq = b.kpi_prod_seq
-	)c
-	INNER JOIN kl_city d
-	ON c.kp_city_seq = d.kc_seq
-		 -->
-<!-- 		SELECT e.*, f.kc_name AS city_name FROM
+		
+ 		SELECT i.*, j.rate AS rate FROM
 		(
-		SELECT c.*, d.kmc_name AS main_category_name FROM
-		(
-			SELECT a.*, b.ksc_name AS sub_category_name
-			FROM kl_product a
-			INNER JOIN 
-			kl_sub_category b
-			ON a.kp_sc_seq = b.ksc_seq
-		)c 
-		INNER JOIN kl_main_category d
-		ON c.kp_mc_seq = d.kmc_seq
-		)e
-		INNER JOIN kl_city f
-		ON e.kp_city_seq = f.kc_seq
-		WHERE kp_seq = #{seq} -->
 		SELECT g.*, h.ksc_name AS sub_cate_name FROM
 		(
 		SELECT e.*, f.kmc_name AS main_cate_name FROM
@@ -114,5 +68,13 @@
 		)g
 		INNER JOIN kl_sub_category h
 		ON g.kp_sc_seq = h.ksc_seq
+		)i
+		INNER JOIN(
+			SELECT round(SUM(kr_rate)/COUNT(kr_rate),2) as rate, kr_prod_seq
+			FROM kl_review
+			WHERE kr_prod_seq = #{seq}
+		)j
+		ON i.kp_seq = j.kr_prod_seq
+		
 	</select>
 </mapper>

@@ -264,3 +264,67 @@
 .price_calc, .point_calc{
 	display:none;
 } 
+.review_area{
+	border-top: 1px solid #ccc;
+	padding-top: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.review_title{
+	font-size: 25px;
+	margin-bottom: 20px;
+}
+.review_title i{
+	color:#E55F33;
+}
+#rating{
+	color:#FFA628;
+	margin-bottom: 20px;
+}
+#user_icon{
+	height: 70px;
+	width: 70px;
+}
+
+.review_item{
+	display:flex;
+	justify-content:flex-start;
+	margin-bottom: 30px;
+}
+.review_user{
+	margin-left: 30px;
+}
+.review_user p{
+	text-align: center;
+	margin-top: 10px;
+}
+.review_content{
+	margin-left: 70px;
+	margin-top: -10px;
+	background-color: #F5F5F5;
+	padding:25px;
+	border-radius: 10px;
+	width: 80%;
+}
+.review_content p {
+	margin-bottom: 20px;
+}
+#kr_title{
+	font-size: 18px;
+	font-weight: 600;
+	margin-left: 5px;
+}
+#all_review, #all_review_hide{
+	float: right;
+	border: 0;
+	background-color: transparent;
+	color: #5a79e2;
+	font-size: 16px;
+	font-family:'ELAND_Choice_M';
+	font-weight: 500;
+	vertical-align: middle;
+}
+
+.all_review_list{
+	display:none;
+}

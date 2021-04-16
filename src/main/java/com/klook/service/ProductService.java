@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.klook.mapper.ProductMapper;
 import com.klook.vo.ProductVO;
+import com.klook.vo.ReviewVO;
 
 @Service
 public class ProductService {
@@ -18,6 +19,7 @@ public class ProductService {
 	public List<ProductVO> selectProduct(){
 		List<Integer> seqList = mapper.selectProductSeqList(4);
 		List<ProductVO> productList = new ArrayList<ProductVO>();
+		
 		for(int i=0; i<seqList.size(); i++) {
 			Integer seq = seqList.get(i);
 			ProductVO product = mapper.selectProduct(seq);
@@ -35,6 +37,7 @@ public class ProductService {
 			product.setOriginPrice(format.format(product.getKp_price()));
 			productList.add(product);
 		}
+		
 		return productList;
 	}
 	public ProductVO selectProductBySeq(Integer seq) {

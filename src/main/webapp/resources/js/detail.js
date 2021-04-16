@@ -46,3 +46,18 @@ $(function(){
 function numberWithCommas(x){
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
+$(function (){
+ 	$("#all_review").click(function(){ 
+		$(".review_list").hide();
+		$("#all_review").hide();
+		$("#all_review_hide").show();
+		$(".all_review_list").show();
+	})
+	$("#all_review_hide").click(function(){
+		$(".review_list").show();
+		$("#all_review").show();
+		$("#all_review_hide").hide();
+		$(".all_review_list").hide();
+	})
+});
+

@@ -28,6 +28,7 @@ public class ProductVO {
 	private String city_name;
 	private String kc_name;
 	private String kpi_uri;
+	private Double rate;
 	
 	private String discounted;
 	private String originPrice;
