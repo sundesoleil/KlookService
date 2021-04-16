@@ -32,4 +32,15 @@
 		WHERE kp_seq = #{seq} 
 		ORDER BY kr_reg_date DESC 
 	</select>
+	<select id="selectReviewBySeq" resultType="com.klook.vo.ReviewVO">
+		SELECT a.*, b.rate AS rate 
+		FROM kl_product a
+		INNER JOIN
+		(
+			SELECT round(SUM(kr_rate)/COUNT(kr_rate),2) as rate, kr_prod_seq
+			FROM kl_review 
+			WHERE kr_prod_seq = #{seq}
+		)b
+		ON a.kp_seq = b.kr_prod_seq
+	</select>
 </mapper>

@@ -8,4 +8,5 @@ import lombok.Setter;
 public class SimpleMemberVO {
 	private String email;
 	private String name;
+	private Integer seq;
 }

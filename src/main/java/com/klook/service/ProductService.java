@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.klook.mapper.ProductMapper;
+import com.klook.vo.CartVO;
+import com.klook.vo.MemberVO;
 import com.klook.vo.ProductVO;
 import com.klook.vo.ReviewVO;
 
@@ -59,6 +61,7 @@ public class ProductService {
 		}
 		
 		product.setOriginPrice(formatter.format(product.getKp_price()));
+	
 		Integer point = null;
 		
 		if(product.getKp_point_rate() != null) {
@@ -66,8 +69,15 @@ public class ProductService {
 		}else {
 			point = 0;
 		}
+
 		product.setPoint(formatter.format(point));
 		product.setPointInt(point);
+
 		return product;
 	}
+	
+	public void insertCartInfo(CartVO vo) {
+		mapper.insertCartInfo(vo);
+	}
+
 }

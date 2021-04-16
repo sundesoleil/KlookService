@@ -30,6 +30,9 @@ public class ShopController {
 		ProductVO product = prodService.selectProductBySeq(prod_seq); 
 		model.addAttribute("product", product);
 		
+		ReviewVO review = reviewService.selectReviewBySeq(prod_seq);
+		model.addAttribute("review", review);
+		
 		List<ReviewVO> reviewList = reviewService.selectReviews(prod_seq);
 		session.setAttribute("reviewList", reviewList);
 		
@@ -46,5 +49,14 @@ public class ShopController {
 		model.addAttribute("ratingOptions", ratingOptions);
 		
 		return "/shop/detail";
+	}
+	
+	@GetMapping("/shop/cart")
+	public String getShopCart() {
+		return "/shop/cart";
+	}
+	@GetMapping("/shop/settlement")
+	public String getSettlement() {
+		return "/shop/settlement";
 	}
 }

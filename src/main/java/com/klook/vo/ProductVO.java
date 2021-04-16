@@ -37,5 +37,5 @@ public class ProductVO {
 	
 	private Integer finalPriceInt;
 	private Integer pointInt;
-
+	
 }

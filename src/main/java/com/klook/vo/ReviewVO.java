@@ -16,4 +16,5 @@ public class ReviewVO {
 	private Double kr_rate;
 	private Date kr_reg_date;
 	private String member_name;
+	private Double rate;
 }

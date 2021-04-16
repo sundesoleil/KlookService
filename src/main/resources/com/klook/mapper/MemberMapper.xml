@@ -5,9 +5,9 @@
 		SELECT COUNT(*) FROM kl_member WHERE km_email=#{email} AND km_pwd=#{pwd}
 	</select>
 	<select id="selectSimpleMemberInfo" resultType="com.klook.vo.SimpleMemberVO">
-		SELECT km_email AS email, km_name AS name
+		SELECT km_email AS email, km_name AS name, km_seq AS seq
 		FROM kl_member
-		WHERE km_email=#{email} AND km_pwd=#{pwd} 
+		WHERE km_email=#{email} AND km_pwd=#{pwd}
 	</select>
 	<insert id="insertMemberInfo">
 		INSERT INTO kl_member(

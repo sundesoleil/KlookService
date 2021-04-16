@@ -27,6 +27,8 @@
 				<img src="/images/${product.kpi_uri }" />
 			</div>
 			<div class="prod_detail_content">
+				<span id="kb_member_seq" data-value="${memberInfo.seq }"></span>
+				<span id="kb_seq" data-value="${product.kp_seq }"></span>
 				<p class="prod_category">
 					${product.city_name } > ${product.main_cate_name } > ${product.sub_cate_name }
 				</p>
@@ -37,7 +39,7 @@
 					<span> ${product.rate }</span>
 				</c:if>
 				<c:if test="${product.rate == null }">
-					<span> 아직 평점이 없습니다 :(</span>
+					<span> 아직 평점이 없습니다 <i class="fas fa-sad-tear"></i></span>
 				</c:if> 
 				</p>
 					<p class="prod_description">${product.kp_description }</p>
@@ -112,11 +114,14 @@
 							<span>구매 시 <b>0</b>원 적립</span>
 						</div>	
 					</div>
+					<c:if test="${memberInfo != null }">
 					<div class="button_area">
-						<button id="add_cart">장바구니 담기</button>
-						<button id="direct_booking">바로 예약하기</button>
+						<button id="add_cart" onclick="location.href='cart/'">장바구니 담기</button>
+						<button onclick="location.href='settlement/'" id="direct_booking">바로 예약하기</button>
 					</div>
+					</c:if>
 				</div>
+				<c:if test="${review.rate != null }">
 				<div class="review_area">
 					<div class="review_title"><i class="fas fa-check"></i> 최신후기</div>
 					<div class="review_list">
@@ -132,7 +137,7 @@
 								</c:forEach> 
 									<span id="kr_title">${review.kr_title}</span>
 									<p id="kr_content">${review.kr_content }</p>
-									<div><fmt:formatDate value="${review.kr_reg_date }" pattern="yyyy년 MM월 dd일" /></div>
+									<div><fmt:formatDate value="${review.kr_reg_date }" pattern="yy-MM-dd" /></div>
 								</div>
 							</div>
 						</c:forEach>
@@ -162,6 +167,7 @@
 						<i class="fas fa-angle-right"></i> 리뷰 목록 접기
 					</button>
 				</div>	
+				</c:if>
 		</section>
 	</div>
 	<%@include file="/WEB-INF/views/includes/footer.jsp" %>

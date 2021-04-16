@@ -2,7 +2,7 @@
 $(function(){
 	
 	$.datepicker.setDefaults({
-        dateFormat: 'yy년 mm월 dd일',
+        dateFormat: 'yy-mm-dd',
         prevText: '이전 달',
         nextText: '다음 달',
         monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
@@ -11,20 +11,20 @@ $(function(){
         dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
         dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
         showMonthAfterYear: true,
-        yearSuffix: '년'
+        yearSuffix: '년',
+		minDate:0
     });
 
 	$("#datePicker").datepicker();
-
-
 	
+
 	let finalPrice = $("#finalPrice").attr("data-value");
 	let finalPoint = $("#point").attr("data-value");
 	
 	$(".final_price span:nth-child(2)").html(numberWithCommas(finalPrice));
 	$(".final_point b").html(numberWithCommas(finalPoint));
 	
-	let totalCount = 0;
+	let totalCount = 1;
 	
 	$("#decrease").click(function(){
 		totalCount--;
@@ -39,9 +39,41 @@ $(function(){
 		$(".total").html(totalCount);
 		$(".final_price span:nth-child(2)").html(numberWithCommas(totalCount*finalPrice));
 		$(".final_point b").html(numberWithCommas(totalCount*finalPoint));
+	});
+	
+	
+
+	$("#add_cart").click(function(){
 		
-	})
+		let data = {
+		"kb_count": totalCount,
+		"kb_booking_date": $("#datePicker").val(),
+		"kb_price": finalPrice * totalCount,
+		"kb_member_seq":$("#kb_member_seq").attr("data-value"),
+		"kb_prod_seq":$("#kb_seq").attr("data-value")
+		}
+
+		$.ajax({
+			url:"/shop/cart",
+			type:"post",
+			contentType:"application/json",
+			data:JSON.stringify(data),
+			success:function(result){
+				alert(result.message);
+				location.href="/shop/cart";
+			},
+			error:function(e){
+				alert("에러");
+				console.log(e);
+			}
+		})
+	});
+	
 })
+
+function newFunction() {
+    return "totalCount";
+}
 
 function numberWithCommas(x){
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');

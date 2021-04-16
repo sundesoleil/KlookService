@@ -8,8 +8,8 @@
 	</select>
 	<select id="selectProduct" resultType="com.klook.vo.ProductVO">
 
-		SELECT i.*, j.rate AS rate FROM
-		(
+<!-- 		SELECT i.*, j.rate AS rate FROM
+		( -->
 		SELECT g.*, h.ksc_name AS sub_cate_name FROM
 		(
 		SELECT e.*, f.kmc_name AS main_cate_name FROM
@@ -33,18 +33,17 @@
 		)g
 		INNER JOIN kl_sub_category h
 		ON g.kp_sc_seq = h.ksc_seq
-		)i
+<!-- 		)i
 		INNER JOIN(
 			SELECT round(SUM(kr_rate)/COUNT(kr_rate),2) as rate, kr_prod_seq
 			FROM kl_review
 			WHERE kr_prod_seq = #{seq}
 		)j
-		ON i.kp_seq = j.kr_prod_seq
+		ON i.kp_seq = j.kr_prod_seq -->
 	</select>
 	<select id="selectProductBySeq" resultType="com.klook.vo.ProductVO">
-		
- 		SELECT i.*, j.rate AS rate FROM
-		(
+<!-- 	 	SELECT i.*, j.rate AS rate FROM
+		(  -->
 		SELECT g.*, h.ksc_name AS sub_cate_name FROM
 		(
 		SELECT e.*, f.kmc_name AS main_cate_name FROM
@@ -68,13 +67,28 @@
 		)g
 		INNER JOIN kl_sub_category h
 		ON g.kp_sc_seq = h.ksc_seq
-		)i
+<!-- 		)i
 		INNER JOIN(
 			SELECT round(SUM(kr_rate)/COUNT(kr_rate),2) as rate, kr_prod_seq
 			FROM kl_review
 			WHERE kr_prod_seq = #{seq}
 		)j
-		ON i.kp_seq = j.kr_prod_seq
-		
+		ON i.kp_seq = j.kr_prod_seq  -->
 	</select>
+	<insert id="insertCartInfo">
+		INSERT INTO kl_basket(
+			kb_count,
+			kb_price,
+			kb_booking_date,
+			kb_member_seq,
+			kb_prod_seq
+		)
+		VALUES(
+			#{kb_count},
+			#{kb_price},
+			#{kb_booking_date},
+			#{kb_member_seq},
+			#{kb_prod_seq}
+		)
+	</insert>
 </mapper>
