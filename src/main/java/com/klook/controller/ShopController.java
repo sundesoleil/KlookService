@@ -12,8 +12,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.klook.service.CartService;
 import com.klook.service.ProductService;
 import com.klook.service.ReviewService;
+import com.klook.vo.CartVO;
+import com.klook.vo.CategoryVO;
 import com.klook.vo.ProductVO;
 import com.klook.vo.ReviewVO;
 
@@ -23,6 +26,9 @@ public class ShopController {
 	ProductService prodService;
 	@Autowired
 	ReviewService reviewService;
+	@Autowired
+	CartService cartService;
+
 	
 	@GetMapping("/shop/detail")
 	public String getShopDetail(@RequestParam Integer prod_seq, Model model, HttpSession session) {
@@ -32,6 +38,7 @@ public class ShopController {
 		
 		ReviewVO review = reviewService.selectReviewBySeq(prod_seq);
 		model.addAttribute("review", review);
+	
 		
 		List<ReviewVO> reviewList = reviewService.selectReviews(prod_seq);
 		session.setAttribute("reviewList", reviewList);
@@ -52,7 +59,17 @@ public class ShopController {
 	}
 	
 	@GetMapping("/shop/cart")
-	public String getShopCart() {
+	public String getShopCart(@RequestParam Integer member_seq, Model model, HttpSession session) {
+		
+		
+		/*
+		 * CartVO cart = cartService.selectCartBySeq(member_seq);
+		 * model.addAttribute("cart", cart);
+		 */
+	
+		List<CartVO> cartList = cartService.selectCarts(member_seq);
+		session.setAttribute("cartList", cartList);
+		
 		return "/shop/cart";
 	}
 	@GetMapping("/shop/settlement")

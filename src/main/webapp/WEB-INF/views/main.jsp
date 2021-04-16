@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%
+<%-- <%
 	response.setHeader("Cache-Control", "no-cache, no-store, must_revalidate");
 	response.setHeader("Pragma", "no-cache");
 	response.setHeader("Expires", "0");
- %>
+ %> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,8 +86,8 @@
 			<p class="prod_sub_title">원하는 여행지를 선택하세요!</p>
 			<div class="item_list_wrap recommend_list">
 				<c:forEach items="${cityList }" var="city">
-				<div class="city_item">
-					<div onclick="location.href='/shop/detail?prod_seq=${city.kc_seq}">
+				<div class="city_item" onclick="location.href='/shop/list?city_seq=${city.kc_seq}'">
+					<div>
 					<p>${city.kc_name }</p>
 					</div>
 				</div>

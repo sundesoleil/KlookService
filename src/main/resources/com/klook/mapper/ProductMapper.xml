@@ -75,20 +75,4 @@
 		)j
 		ON i.kp_seq = j.kr_prod_seq  -->
 	</select>
-	<insert id="insertCartInfo">
-		INSERT INTO kl_basket(
-			kb_count,
-			kb_price,
-			kb_booking_date,
-			kb_member_seq,
-			kb_prod_seq
-		)
-		VALUES(
-			#{kb_count},
-			#{kb_price},
-			#{kb_booking_date},
-			#{kb_member_seq},
-			#{kb_prod_seq}
-		)
-	</insert>
 </mapper>

@@ -76,8 +76,4 @@ public class ProductService {
 		return product;
 	}
 	
-	public void insertCartInfo(CartVO vo) {
-		mapper.insertCartInfo(vo);
-	}
-
 }

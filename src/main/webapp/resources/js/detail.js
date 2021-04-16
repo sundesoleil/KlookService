@@ -45,6 +45,7 @@ $(function(){
 
 	$("#add_cart").click(function(){
 		
+		
 		let data = {
 		"kb_count": totalCount,
 		"kb_booking_date": $("#datePicker").val(),
@@ -54,13 +55,13 @@ $(function(){
 		}
 
 		$.ajax({
-			url:"/shop/cart",
+			url:"/shop/cart?member_seq="+$("#kb_member_seq").attr("data-value"),
 			type:"post",
 			contentType:"application/json",
 			data:JSON.stringify(data),
 			success:function(result){
 				alert(result.message);
-				location.href="/shop/cart";
+				location.href="/shop/cart?member_seq="+$("#kb_member_seq").attr("data-value");
 			},
 			error:function(e){
 				alert("에러");

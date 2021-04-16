@@ -16,4 +16,5 @@ public class CartVO {
 	private Date kb_booking_date;
 	private Integer kb_member_seq;
 	private Integer kb_prod_seq;
+	private String member_name;
 }

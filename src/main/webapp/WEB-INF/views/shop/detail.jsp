@@ -116,7 +116,7 @@
 					</div>
 					<c:if test="${memberInfo != null }">
 					<div class="button_area">
-						<button id="add_cart" onclick="location.href='cart/'">장바구니 담기</button>
+						<button id="add_cart" onclick="location.href='cart?member_seq=${cart.member_seq}'">장바구니 담기</button>
 						<button onclick="location.href='settlement/'" id="direct_booking">바로 예약하기</button>
 					</div>
 					</c:if>

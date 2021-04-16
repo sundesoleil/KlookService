@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klook.mapper.CartMapper">
+	<insert id="insertCartInfo">
+		INSERT INTO kl_basket(
+			kb_count,
+			kb_price,
+			kb_booking_date,
+			kb_member_seq,
+			kb_prod_seq
+		)
+		VALUES(
+			#{kb_count},
+			#{kb_price},
+			#{kb_booking_date},
+			#{kb_member_seq},
+			#{kb_prod_seq}
+		)
+	</insert>
+	<select id="selectCartBySeq" resultType="com.klook.vo.CartVO">
+		SELECT c.*, d.km_name AS member_name FROM
+		(
+		SELECT a.*
+		FROM kl_basket a
+		INNER JOIN 
+		kl_product b
+		ON a.kb_prod_seq = b.kp_seq
+		)c
+		INNER JOIN
+		kl_member d
+		ON c.kb_member_seq = d.km_seq
+		WHERE km_seq = #{seq}
+	</select>
+	<select id="selectCarts" resultType="com.klook.vo.CartVO">
+		SELECT c.*, d.km_name AS member_name FROM
+		(
+		SELECT a.*
+		FROM kl_basket a
+		INNER JOIN 
+		kl_product b
+		ON a.kb_prod_seq = b.kp_seq
+		)c
+		INNER JOIN
+		kl_member d
+		ON c.kb_member_seq = d.km_seq
+		WHERE km_seq = #{seq}
+	</select>
+</mapper>

@@ -22,7 +22,7 @@
 						<a href="/member/login">로그인</a>
 					</c:if>
 					<c:if test="${memberInfo != null}">
-						<a href="/member/join"><i class="fas fa-shopping-cart"></i> 장바구니</a>
+						<a href="/shop/cart?member_seq=${memberInfo.seq }"><i class="fas fa-shopping-cart"></i> 장바구니</a>
 						<span>|</span>
 						<a href="/member/user/orderlist" id="user_name">${memberInfo.name } 님</a>
 						<img src="/resources/images/DM_20210324195650_049.PNG" />
