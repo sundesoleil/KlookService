@@ -7,9 +7,6 @@
 		DESC LIMIT #{LIMIT}
 	</select>
 	<select id="selectProduct" resultType="com.klook.vo.ProductVO">
-
-<!-- 		SELECT i.*, j.rate AS rate FROM
-		( -->
 		SELECT g.*, h.ksc_name AS sub_cate_name FROM
 		(
 		SELECT e.*, f.kmc_name AS main_cate_name FROM
@@ -33,17 +30,8 @@
 		)g
 		INNER JOIN kl_sub_category h
 		ON g.kp_sc_seq = h.ksc_seq
-<!-- 		)i
-		INNER JOIN(
-			SELECT round(SUM(kr_rate)/COUNT(kr_rate),2) as rate, kr_prod_seq
-			FROM kl_review
-			WHERE kr_prod_seq = #{seq}
-		)j
-		ON i.kp_seq = j.kr_prod_seq -->
 	</select>
 	<select id="selectProductBySeq" resultType="com.klook.vo.ProductVO">
-<!-- 	 	SELECT i.*, j.rate AS rate FROM
-		(  -->
 		SELECT g.*, h.ksc_name AS sub_cate_name FROM
 		(
 		SELECT e.*, f.kmc_name AS main_cate_name FROM
@@ -67,20 +55,78 @@
 		)g
 		INNER JOIN kl_sub_category h
 		ON g.kp_sc_seq = h.ksc_seq
-<!-- 		)i
-		INNER JOIN(
-			SELECT round(SUM(kr_rate)/COUNT(kr_rate),2) as rate, kr_prod_seq
-			FROM kl_review
-			WHERE kr_prod_seq = #{seq}
-		)j
-		ON i.kp_seq = j.kr_prod_seq  -->
 	</select> 
 	<select id="selectSubCategoryProd" resultType="com.klook.vo.ProductVO">
-		SELECT a.*, b.ksc_seq AS category
+		<!-- SELECT a.*, b.ksc_seq AS category
 		FROM kl_product a
 		INNER JOIN
 		kl_sub_category b
 		ON a.kp_sc_seq = b.ksc_seq
+		WHERE ksc_seq = #{ksc_seq} -->
+		SELECT c.* FROM
+		(
+		SELECT * FROM kl_product a
+		INNER JOIN 
+		(
+			SELECT kpi_seq AS kpi_seq, kpi_uri, kpi_prod_seq
+			FROM kl_product_img
+		)b
+		ON a.kp_seq = b.kpi_prod_seq
+		)c
+		INNER JOIN kl_sub_category d
+		ON c.kp_sc_seq = d.ksc_seq
 		WHERE ksc_seq = #{ksc_seq}
+	</select>
+	<select id="selectMainCategoryProd" resultType="com.klook.vo.ProductVO">
+		<!-- SELECT c.*, d.ksc_name AS sub_category FROM
+		(
+		SELECT * FROM kl_product a
+		INNER JOIN kl_main_category b
+		ON a.kp_mc_seq = b.kmc_seq
+		)c
+		INNER JOIN kl_sub_category d
+		ON c.kp_sc_seq = d.ksc_seq
+		WHERE c.kp_mc_seq = #{main_seq} -->
+		SELECT e.*, f.ksc_name AS sub_category FROM
+		(
+		SELECT c.* FROM
+		(
+		SELECT * FROM kl_product a
+		INNER JOIN 
+		(
+			SELECT kpi_seq AS kpi_seq, kpi_uri, kpi_prod_seq
+			FROM kl_product_img
+		)b
+		ON a.kp_seq = b.kpi_prod_seq
+		)c
+		INNER JOIN kl_main_category d
+		ON c.kp_mc_seq = d.kmc_seq
+		)e
+		INNER JOIN kl_sub_category f
+		ON e.kp_sc_seq = f.ksc_seq
+		WHERE e.kp_mc_seq = #{main_seq}
+	</select>
+	<select id="selectSubCateList" resultType="com.klook.vo.ProductVO">
+		SELECT b.ksc_name AS sub_cate_name, b.ksc_seq AS seq
+		FROM kl_main_category a
+		INNER JOIN
+		kl_sub_category b
+		ON a.kmc_seq = b.ksc_mc_seq
+		WHERE kmc_seq = #{main_seq}
+	</select>
+	<select id="selectCityProd" resultType="com.klook.vo.ProductVO">
+		SELECT c.* FROM
+		(
+		SELECT * FROM kl_product a
+		INNER JOIN 
+		(
+			SELECT kpi_seq AS kpi_seq, kpi_uri, kpi_prod_seq
+			FROM kl_product_img
+		)b
+		ON a.kp_seq = b.kpi_prod_seq
+		)c
+		INNER JOIN kl_city d
+		ON c.kp_city_seq = d.kc_seq
+		WHERE kc_seq = #{seq} 
 	</select>
 </mapper>

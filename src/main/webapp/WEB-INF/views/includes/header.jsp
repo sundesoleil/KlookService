@@ -9,11 +9,12 @@
 	<link rel="icon" href="/resources/images/favicon.png" />
 	<link rel="stylesheet" href="/resources/css/reset.css" />
 	<link rel="stylesheet" href="/resources/css/header.css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 	<script src="/resources/js/header.js"></script>
 </head>
 <body>
 	<header>
-		<nav id="gnb">
+	<nav id="gnb">
 			<div class="gnb_top">
 				<div class="user_menu">
 					<c:if test="${memberInfo == null}">
@@ -45,40 +46,41 @@
 			</div>
 			<div class="logo_area">
 				<a href="/" id="logo">
-					<img src="/resources/images/logo.JPEG" />
-				</a>		
+					<img src="/resources/images/logo.png" />
+				</a>
+					<!-- <input type="text" placeholder="도시 검색" /> -->
 			</div>
 				<div class="menu_area_wrap">
 					<ul class="main_menu">
 						<li>
 		 					<a href="#">
 								<!-- <img src="/resources/images/DM_20210324195650_051.PNG" /> -->
-								<span>전체 카테고리</span>
+								<i class="fas fa-bars"></i><span> 전체 카테고리</span>
 							</a>
 						</li>
 						<li>
-							<a href="/shop/maincategory?category=1">티켓/입장권</a>
+							<a href="/shop/maincategory?category=1"><i class="fas fa-ticket-alt"></i><span> 티켓/입장권</span></a>
 						</li>
 						<li>
-							<a href="/shop/maincategory?category=2">투어</a>
+							<a href="/shop/maincategory?category=2"><i class="fab fa-font-awesome-flag"></i><span> 투어</span></a>
 						</li>
 						<li>
-							<a href="/shop/maincategory?category=3">아웃도어/스포츠</a>
+							<a href="/shop/maincategory?category=3"><i class="fas fa-swimmer"></i><span> 아웃도어</span></a>
 						</li>
 						<li>
-							<a href="/shop/maincategory?category=4">스파/테라피</a>
+							<a href="/shop/maincategory?category=4"><i class="fas fa-hot-tub"></i><span> 스파/테라피</span></a>
 						</li>
 						<li>
-							<a href="/shop/maincategory?category=5">체험</a>
+							<a href="/shop/maincategory?category=5"><i class="fas fa-school"></i> 원데이클래스/체험</a>
 						</li>
 						<li>
-							<a href="/shop/maincategory?category=6">엔터테인먼트</a>
+							<a href="/shop/maincategory?category=6"><i class="fas fa-glass-cheers"></i><span> 엔터테인먼트</a>
 						</li>
 					</ul>
 					
 			
 				</div>
-				<!-- 현재 카테고리 seq가 메인 카테고리 seq로 나와있는데 이걸 sub_seq로 바꿔야 할 듯요 -->
+
 				<div class="categories">
 					<div class="categories_wrap">
 						<c:forEach items="${categoryList }" var="category">
@@ -86,7 +88,8 @@
 						</c:forEach>
 					</div>
 				</div>
-		</nav>
+				</div>
+	</nav> 
 	</header>
 </body>
 </html>

@@ -21,7 +21,7 @@ $(function(){
 	})
 	
 	$("#user_pwd").keydown(function(e){
-		if(e.keydown == 13){
+		if(e.keyCode == 13){
 			$("#login").trigger("click");
 		} 
 	})

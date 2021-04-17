@@ -84,4 +84,23 @@ public class ShopController {
 		
 		return "/shop/subcategory";
 	}
+	@GetMapping("/shop/maincategory")
+	public String getMainCategoryProd(@RequestParam Integer category, Model model, HttpSession session) {
+		
+		List<ProductVO> mainList = prodService.selectMainCategoryProd(category);
+		session.setAttribute("mainList", mainList);
+		
+		List<ProductVO> subCateList = prodService.selectSubCateList(category);
+		session.setAttribute("subCateList", subCateList);
+		
+		return "/shop/maincategory";
+	}
+	@GetMapping("/shop/city")
+	public String getCityProd(@RequestParam Integer seq, Model model, HttpSession session) {
+		
+		List<ProductVO> cityProdList = prodService.selectCityProd(seq);
+		session.setAttribute("cityProdList", cityProdList);
+		
+		return "/shop/city";
+	}
 }

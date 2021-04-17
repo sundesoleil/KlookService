@@ -78,5 +78,13 @@ public class ProductService {
 	public List<ProductVO> selectSubCategoryProd(Integer category){
 		return mapper.selectSubCategoryProd(category);
 	}
-	
+	public List<ProductVO> selectMainCategoryProd(Integer category){
+		return mapper.selectMainCategoryProd(category);
+	}
+	public List<ProductVO> selectSubCateList(Integer category){
+		return mapper.selectSubCateList(category);
+	}
+	public List<ProductVO> selectCityProd(Integer seq){
+		return mapper.selectCityProd(seq);
+	}
 }

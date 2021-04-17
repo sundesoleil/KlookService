@@ -13,6 +13,9 @@
 	<h1>서브 카테고리 목록</h1>
 	<c:forEach items="${subList }" var="product">
 		${product.kp_name }
+		<div class="prod_img_box">
+				<img src="/images/${product.kpi_uri }" />
+		</div>
 	</c:forEach>
 </body>
 </html>
