@@ -22,7 +22,7 @@ public class ProductVO {
 	private Integer kp_sc_seq;
 	private Integer kp_pimg_seq;
 	private Integer kp_rate;
-	
+
 	private String main_cate_name;
 	private String sub_cate_name;
 	private String city_name;

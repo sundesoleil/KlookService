@@ -1,0 +1,4 @@
+/*cart.css*/
+#cart, .user_menu span:nth-child(2){
+	display:none;
+}

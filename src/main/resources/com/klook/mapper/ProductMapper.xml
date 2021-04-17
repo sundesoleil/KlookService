@@ -74,5 +74,13 @@
 			WHERE kr_prod_seq = #{seq}
 		)j
 		ON i.kp_seq = j.kr_prod_seq  -->
+	</select> 
+	<select id="selectSubCategoryProd" resultType="com.klook.vo.ProductVO">
+		SELECT a.*, b.ksc_seq AS category
+		FROM kl_product a
+		INNER JOIN
+		kl_sub_category b
+		ON a.kp_sc_seq = b.ksc_seq
+		WHERE ksc_seq = #{ksc_seq}
 	</select>
 </mapper>

@@ -7,16 +7,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title>클룩 KLOOK - 쉽고 빠른 전국 액티비티 예약</title>
+	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="/resources/js/cart.js"></script>
 	<link rel="icon" href="/resources/images/favicon.png" />
 	<link rel="stylesheet" href="/resources/css/reset.css" />
+	<link rel="stylesheet" href="/resources/css/cart.css" />
 </head>
+
 <body>
-	<%@include file="/WEB-INF/views/includes/header.jsp" %>
+	<%@include file="/WEB-INF/views/includes/header.jsp" %>	
 	<c:forEach items="${cartList }" var="cart">
 	<div class="city_item">
-		<div onclick="location.href='/shop/cart?city_seq=${cart.kb_count}">
+<%-- 		<div onclick="location.href='/shop/cart?city_seq=${cart.kb_count}"> --%>
 		<p>${cart.kb_booking_date }</p>
-		</div>
+		<!-- </div> -->
 	</div>
 	</c:forEach>
 	<%@include file="/WEB-INF/views/includes/footer.jsp" %>

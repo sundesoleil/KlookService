@@ -76,4 +76,12 @@ public class ShopController {
 	public String getSettlement() {
 		return "/shop/settlement";
 	}
+	@GetMapping("/shop/subcategory")
+	public String getSubCategoryProd(@RequestParam Integer category, Model model, HttpSession session) {
+		
+		List<ProductVO> subList = prodService.selectSubCategoryProd(category);
+		session.setAttribute("subList", subList);
+		
+		return "/shop/subcategory";
+	}
 }

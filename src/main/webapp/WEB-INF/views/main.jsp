@@ -86,7 +86,7 @@
 			<p class="prod_sub_title">원하는 여행지를 선택하세요!</p>
 			<div class="item_list_wrap recommend_list">
 				<c:forEach items="${cityList }" var="city">
-				<div class="city_item" onclick="location.href='/shop/list?city_seq=${city.kc_seq}'">
+				<div class="city_item" onclick="location.href='/shop/city?seq=${city.kc_seq}'">
 					<div>
 					<p>${city.kc_name }</p>
 					</div>

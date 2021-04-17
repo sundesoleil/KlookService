@@ -13,4 +13,6 @@ public interface ProductMapper {
 	public List<Integer> selectProductSeqList(Integer limit);
 	public ProductVO selectProduct(Integer seq);
 	public ProductVO selectProductBySeq(Integer seq);
+	
+	public List<ProductVO> selectSubCategoryProd(Integer category);
 }

@@ -75,5 +75,8 @@ public class ProductService {
 
 		return product;
 	}
+	public List<ProductVO> selectSubCategoryProd(Integer category){
+		return mapper.selectSubCategoryProd(category);
+	}
 	
 }
