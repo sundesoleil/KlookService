@@ -16,13 +16,42 @@
 
 <body>
 	<%@include file="/WEB-INF/views/includes/header.jsp" %>	
-	<c:forEach items="${cartList }" var="cart">
-	<div class="city_item">
-<%-- 		<div onclick="location.href='/shop/cart?city_seq=${cart.kb_count}"> --%>
-		<p>${cart.kb_booking_date }</p>
-		<!-- </div> -->
+	<div class="main">
+	
+		<div class="cart_area">
+		<c:if test="${cart.prod_name != null }">
+		<h1>장바구니</h1>
+		<div class="check_all">
+			<input type="checkbox" />
+			<span>전체 선택</span>
+			<span><button data-value="${memberInfo.seq}" class="delete_all_btn">전체 삭제</button></span>
+		</div>
+		
+		
+			<c:forEach items="${cartList }" var="cart">
+			<div class="cart_prod">
+			<div class="cart_item">
+				<input type="checkbox" />
+				<span>${cart.prod_name }</span>
+				<span><fmt:formatDate value="${cart.kb_booking_date }" pattern="yyyy-MM-dd" /></span>
+				<span>${cart.kb_count }매</span>
+				<span>${cart.kb_price }원</span>
+	 			<span><button  data-value="${cart.kb_seq }" class="delete_btn">삭제</button></span> 
+			</div>
+			</div>
+			</c:forEach>
+	
+
+		</c:if>
+			</div>
+		<c:if test="${cart.prod_name == null }">
+			<div class="no_cart_msg">
+			<img src="/resources/images/cart.png" />
+			<p>장바구니가 비어 있어요.</p>
+			</div>
+		</c:if>
 	</div>
-	</c:forEach>
+	
 	<%@include file="/WEB-INF/views/includes/footer.jsp" %>
 </body>
 </html>

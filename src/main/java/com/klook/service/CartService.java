@@ -22,4 +22,10 @@ public class CartService {
 	public List<CartVO> selectCarts(Integer seq){
 		return mapper.selectCarts(seq);
 	}
+	public void deleteCart(Integer seq) {
+		mapper.deleteCart(seq);
+	}
+	public void deleteAllCart(Integer seq) {
+		mapper.deleteAllCart(seq);
+	}
 }

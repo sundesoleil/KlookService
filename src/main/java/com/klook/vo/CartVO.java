@@ -17,4 +17,5 @@ public class CartVO {
 	private Integer kb_member_seq;
 	private Integer kb_prod_seq;
 	private String member_name;
+	private String prod_name;
 }

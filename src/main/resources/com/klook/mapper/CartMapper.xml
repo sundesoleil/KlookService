@@ -18,7 +18,7 @@
 		)
 	</insert>
 	<select id="selectCartBySeq" resultType="com.klook.vo.CartVO">
-		SELECT c.*, d.km_name AS member_name FROM
+		<!-- SELECT c.*, d.km_name AS member_name FROM
 		(
 		SELECT a.*
 		FROM kl_basket a
@@ -29,12 +29,15 @@
 		INNER JOIN
 		kl_member d
 		ON c.kb_member_seq = d.km_seq
-		WHERE km_seq = #{seq}
+		WHERE km_seq = #{seq} -->
+		SELECT *
+		FROM kl_basket
+		WHERE kb_member_seq = #{seq} 
 	</select>
 	<select id="selectCarts" resultType="com.klook.vo.CartVO">
 		SELECT c.*, d.km_name AS member_name FROM
 		(
-		SELECT a.*
+		SELECT a.*, b.kp_name AS prod_name
 		FROM kl_basket a
 		INNER JOIN 
 		kl_product b
@@ -45,4 +48,10 @@
 		ON c.kb_member_seq = d.km_seq
 		WHERE km_seq = #{seq}
 	</select>
+	<delete id="deleteCart">
+		DELETE FROM kl_basket WHERE kb_seq = #{seq}
+	</delete>
+	<delete id="deleteAllCart">
+		DELETE FROM kl_basket WHERE kb_member_seq = #{seq}
+	</delete>
 </mapper>

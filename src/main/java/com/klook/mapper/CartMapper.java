@@ -11,4 +11,6 @@ public interface CartMapper {
 	public void insertCartInfo(CartVO vo);
 	public List<CartVO> selectCarts(Integer seq);
 	public CartVO selectCartBySeq(Integer seq);
+	public void deleteCart(Integer seq);
+	public void deleteAllCart(Integer seq);
 }

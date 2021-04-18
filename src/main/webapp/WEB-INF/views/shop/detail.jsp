@@ -120,12 +120,15 @@
 						<button onclick="location.href='settlement/'" id="direct_booking">바로 예약하기</button>
 					</div>
 					</c:if>
+					<c:if test="${memberInfo == null }">
+						<div style="text-align:right; color:darkgray; margin-top:10px;">장바구니 기능과 예약 기능은 로그인 후 이용하실 수 있습니다.</div>
+					</c:if>
 				</div>
 				<c:if test="${review.rate != null }">
 				<div class="review_area">
 					<div class="review_title"><i class="fas fa-check"></i> 최신후기</div>
 					<div class="review_list">
-						<c:forEach items="${reviewList }" var="review">
+						<c:forEach items="${reviewList }" var="review">	
 						<div class="review_item">
 							<div class="review_user">
 								<img id="user_icon" src="/resources/images/user.png" />

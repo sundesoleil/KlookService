@@ -62,6 +62,7 @@ public class ShopController {
 	public String getShopCart(@RequestParam Integer member_seq, Model model, HttpSession session) {
 		
 		
+		
 		/*
 		 * CartVO cart = cartService.selectCartBySeq(member_seq);
 		 * model.addAttribute("cart", cart);

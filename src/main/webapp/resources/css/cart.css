@@ -2,3 +2,65 @@
 #cart, .user_menu span:nth-child(2){
 	display:none;
 }
+.main{
+	border-top: 1px solid #eee; 
+	background-color: #F5F5F5;
+}
+.cart_area{
+	width: 1050px;
+	margin: 20px auto;
+	overflow: hidden;
+}
+.cart_area h1{
+	font-size: 32px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-weight: 600;
+}
+.check_all, .cart_prod{
+	font-size: 20px;
+	padding-top: 20px;
+	padding-bottom: 25px;
+	padding-left: 10px;
+	background-color: #fff;
+	margin-bottom: 30px;
+}
+.check_all input{
+	margin-left: 50px;
+	margin-right: 65px;
+}
+.check_all button{
+	margin-right: 50px;
+}
+.check_all input, .cart_item input{
+	width: 15px;
+	height: 15px;	
+}
+.check_all span{
+	margin-left: 20px;
+}
+.cart_item{
+	margin-bottom: 20px;
+	padding-top: 20px;
+	display:flex;
+	justify-content: space-around;
+}
+.delete_btn, .delete_all_btn{
+	float:right;
+	margin-right: 20px;
+	padding: 7px 10px;
+	background-color: #FF602F;
+	color: #fff;
+	border:0;
+	border-radius:5px;
+	cursor:pointer;
+}
+.no_cart_msg{
+	text-align: center;
+	padding: 100px;
+	font-size: 28px;
+	color: darkgray;	
+}
+.no_cart_msg img{
+	margin-bottom: 50px;
+}
