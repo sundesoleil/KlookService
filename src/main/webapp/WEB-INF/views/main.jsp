@@ -117,8 +117,8 @@
 							<c:if test="${product.kp_discount == 0 }">
 								<span class="prod_final_price">${product.originPrice}원</span>
 							</c:if>
-							<c:if test="${product.kp_rate != null }">
-								<i class="fas fa-star"> ${product.kp_rate }</i>
+							<c:if test="${review.rate != null }">
+								<i class="fas fa-star"> ${review.rate }</i>
 							</c:if>
 						</p>
 						<c:if test="${product.kp_discount == 1 }">

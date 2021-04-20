@@ -7,12 +7,17 @@ import org.springframework.stereotype.Service;
 
 import com.klook.mapper.CityMapper;
 import com.klook.vo.CityVO;
+import com.klook.vo.ProductVO;
 
 @Service
 public class CityService {
 	@Autowired
 	CityMapper mapper;
 	
+	public List<CityVO> selectCityBySeq(Integer seq) {
+		return mapper.selectCityBySeq(seq);
+	}
+
 	public List<CityVO> selectCities(){
 		return mapper.selectCities();
 	}

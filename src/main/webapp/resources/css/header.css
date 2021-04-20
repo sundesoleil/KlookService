@@ -19,6 +19,7 @@ header{
 .user_menu{
 	position: absolute; 
 	float: right;
+	margin-right: 120px;
 	margin-top: 68px;
 	right: 0;
 	top: 10px;
@@ -37,7 +38,7 @@ header{
 .user_popup{
 	position:absolute;
 	z-index:9;
-	top: 14px;
+	top: 10px;
 	padding-top: 85px;
 	display:none;
 }
@@ -57,13 +58,14 @@ header{
 	color: #ff5722;
 }
 .user_popup{
-	right: 107px;
+	right: 225px;
 }
 .logo_area{
 	text-align:left;
 	margin-top: 15px;
 	border-bottom: 1px solid #ccc;
 	padding-bottom: 25px;
+	margin-left: 20px;
 }
 .menu_area_wrap{
 	width: 100%;
@@ -137,14 +139,18 @@ header{
 #search_input{
 	display:inline-block;
 	border: 0;
-	background-color: #f4f4f4;
+	background-color: #fff;
 	padding-left: 15px;
 	padding-right: 60px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-radius:99px;
-	width:150px;
-	font-size: 12px;
+	width:400px;
+	height: 30px;
+}
+#search_input::placeholder{
+	font-size: 18px;
+	padding-top: 10px;
 }
 #search_btn{
 	border:0;
@@ -153,9 +159,11 @@ header{
 	left: 175px;
 	top: 12px;
 }
+
 #search_btn img{
 	width: 38px;
 	filter:invert(1);
+	margin-left: 250px;
 }
 .search_area > *{
 	vertical-align:middle;

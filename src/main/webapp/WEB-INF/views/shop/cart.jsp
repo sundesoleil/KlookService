@@ -17,41 +17,39 @@
 <body>
 	<%@include file="/WEB-INF/views/includes/header.jsp" %>	
 	<div class="main">
-	
-		<div class="cart_area">
-		<c:if test="${cart.prod_name != null }">
+	<div class="cart_area">
+	<c:if test="${cartList.size() > 0 }">
 		<h1>장바구니</h1>
 		<div class="check_all">
-			<input type="checkbox" />
+			<input data-value="${cart.kb_price }" type="checkbox" id="select_all" />
 			<span>전체 선택</span>
 			<span><button data-value="${memberInfo.seq}" class="delete_all_btn">전체 삭제</button></span>
 		</div>
-		
-		
-			<c:forEach items="${cartList }" var="cart">
+		<c:forEach items="${cartList }" var="cart">
 			<div class="cart_prod">
-			<div class="cart_item">
-				<input type="checkbox" />
-				<span>${cart.prod_name }</span>
-				<span><fmt:formatDate value="${cart.kb_booking_date }" pattern="yyyy-MM-dd" /></span>
-				<span>${cart.kb_count }매</span>
-				<span>${cart.kb_price }원</span>
-	 			<span><button  data-value="${cart.kb_seq }" class="delete_btn">삭제</button></span> 
+				<div class="cart_item">
+					<input data-value="${cart.kb_price }" type="checkbox" class="select_checked"/>
+					<span>${cart.prod_name }</span>
+					<span><fmt:formatDate value="${cart.kb_booking_date }" pattern="yyyy-MM-dd" /></span>
+					<span>${cart.kb_count }매</span>
+					<span>${cart.kb_price }원</span>
+		 			<span><button data-value="${cart.kb_seq }" class="delete_btn">삭제</button></span> 
+				</div>
 			</div>
-			</div>
-			</c:forEach>
-	
-
-		</c:if>
-			</div>
-		<c:if test="${cart.prod_name == null }">
-			<div class="no_cart_msg">
-			<img src="/resources/images/cart.png" />
-			<p>장바구니가 비어 있어요.</p>
+		</c:forEach>
+		<div class="final">
+			<p class="finalPrice">총 금액 <span>0</span></p>
+			<p><a href="/shop/settlement">바로 결제</a></p>
+		</div>
+	</c:if>
+		<c:if test="${cartList.size() == 0 }">
+				<div class="no_cart_msg">
+				<img src="/resources/images/cart.png" />
+				<p>장바구니가 비어 있어요.</p>
 			</div>
 		</c:if>
 	</div>
-	
-	<%@include file="/WEB-INF/views/includes/footer.jsp" %>
+</div>
+<%@include file="/WEB-INF/views/includes/footer.jsp" %>
 </body>
 </html>

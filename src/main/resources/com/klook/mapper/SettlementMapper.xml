@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.klook.mapper.SettlementMapper">
+	<insert id="insertSettlementInfo">
+		INSERT INTO kl_settlement(
+			ks_method,
+			ks_amount,
+			ks_booking_date,
+			ks_member_seq,
+			ks_prod_seq
+		)
+		VALUES(
+			#{ks_method},
+			#{ks_amount},
+			#{ks_booking_date},
+			#{ks_member_seq},
+			#{ks_prod_seq}
+		)
+	</insert>
+	<select id="selectSettlementBySeq" resultType="com.klook.vo.SettlementVO">
+		SELECT *
+		FROM kl_settlement
+		WHERE ks_member_seq = #{seq} 
+	</select>
+	<select id="selectSettlements" resultType="com.klook.vo.SettlementVO">
+		SELECT c.*, d.km_name AS member_name FROM
+		(
+		SELECT a.*, b.kp_name AS prod_name
+		FROM kl_settlement a
+		INNER JOIN 
+		kl_product b
+		ON a.ks_prod_seq = b.kp_seq
+		)c
+		INNER JOIN
+		kl_member d
+		ON c.ks_member_seq = d.km_seq
+		WHERE km_seq = #{seq}
+	</select>
+</mapper>

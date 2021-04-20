@@ -57,13 +57,7 @@
 		ON g.kp_sc_seq = h.ksc_seq
 	</select> 
 	<select id="selectSubCategoryProd" resultType="com.klook.vo.ProductVO">
-		<!-- SELECT a.*, b.ksc_seq AS category
-		FROM kl_product a
-		INNER JOIN
-		kl_sub_category b
-		ON a.kp_sc_seq = b.ksc_seq
-		WHERE ksc_seq = #{ksc_seq} -->
-		SELECT c.* FROM
+		<!-- SELECT c.*, d.ksc_name AS sub_cate_name FROM
 		(
 		SELECT * FROM kl_product a
 		INNER JOIN 
@@ -76,19 +70,29 @@
 		INNER JOIN kl_sub_category d
 		ON c.kp_sc_seq = d.ksc_seq
 		WHERE ksc_seq = #{ksc_seq}
+		ORDER BY kp_reg_date DESC -->
+		SELECT e.*, f.ksc_name AS sub_cate_name FROM
+		(
+		SELECT c.*, d.kc_name AS city_name FROM
+		(
+		SELECT * FROM kl_product a
+		INNER JOIN 
+		(
+			SELECT kpi_seq AS kpi_seq, kpi_uri, kpi_prod_seq
+			FROM kl_product_img
+		)b
+		ON a.kp_seq = b.kpi_prod_seq
+		)c
+		INNER JOIN kl_city d
+		ON c.kp_city_seq = d.kc_seq
+		)e
+		INNER JOIN kl_sub_category f
+		ON e.kp_sc_seq = f.ksc_seq
+		WHERE ksc_seq = #{ksc_seq}
 		ORDER BY kp_reg_date DESC
 	</select>
 	<select id="selectMainCategoryProd" resultType="com.klook.vo.ProductVO">
-		<!-- SELECT c.*, d.ksc_name AS sub_category FROM
-		(
-		SELECT * FROM kl_product a
-		INNER JOIN kl_main_category b
-		ON a.kp_mc_seq = b.kmc_seq
-		)c
-		INNER JOIN kl_sub_category d
-		ON c.kp_sc_seq = d.ksc_seq
-		WHERE c.kp_mc_seq = #{main_seq} -->
-		SELECT e.*, f.ksc_name AS sub_category FROM
+		<!-- SELECT e.*, f.ksc_name AS sub_category FROM
 		(
 		SELECT c.* FROM
 		(
@@ -106,6 +110,30 @@
 		INNER JOIN kl_sub_category f
 		ON e.kp_sc_seq = f.ksc_seq
 		WHERE e.kp_mc_seq = #{main_seq}
+		ORDER BY kp_reg_date DESC -->
+		SELECT g.*, h.ksc_name AS sub_category FROM
+		(
+		SELECT e.*, f.kc_name AS city_name FROM
+		(
+		SELECT c.* FROM
+		(
+		SELECT * FROM kl_product a
+		INNER JOIN 
+		(
+			SELECT kpi_seq AS kpi_seq, kpi_uri, kpi_prod_seq
+			FROM kl_product_img
+		)b
+		ON a.kp_seq = b.kpi_prod_seq
+		)c
+		INNER JOIN kl_main_category d
+		ON c.kp_mc_seq = d.kmc_seq
+		)e
+		INNER JOIN kl_city f
+		ON e.kp_city_seq = f.kc_seq
+		)g
+		INNER JOIN kl_sub_category h
+		ON g.kp_sc_seq = h.ksc_seq
+		WHERE g.kp_mc_seq = #{main_seq}
 		ORDER BY kp_reg_date DESC
 	</select>
 	<select id="selectSubCateList" resultType="com.klook.vo.ProductVO">
@@ -117,7 +145,7 @@
 		WHERE kmc_seq = #{main_seq}
 	</select>
 	<select id="selectCityProd" resultType="com.klook.vo.ProductVO">
-		SELECT c.* FROM
+		SELECT c.*, d.kc_name AS city_name FROM
 		(
 		SELECT * FROM kl_product a
 		INNER JOIN 

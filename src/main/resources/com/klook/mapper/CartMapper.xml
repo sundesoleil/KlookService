@@ -18,18 +18,6 @@
 		)
 	</insert>
 	<select id="selectCartBySeq" resultType="com.klook.vo.CartVO">
-		<!-- SELECT c.*, d.km_name AS member_name FROM
-		(
-		SELECT a.*
-		FROM kl_basket a
-		INNER JOIN 
-		kl_product b
-		ON a.kb_prod_seq = b.kp_seq
-		)c
-		INNER JOIN
-		kl_member d
-		ON c.kb_member_seq = d.km_seq
-		WHERE km_seq = #{seq} -->
 		SELECT *
 		FROM kl_basket
 		WHERE kb_member_seq = #{seq} 

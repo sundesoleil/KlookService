@@ -59,22 +59,22 @@
 							</a>
 						</li>
 						<li>
-							<a href="/shop/maincategory?category=1"><i class="fas fa-ticket-alt"></i><span> 티켓/입장권</span></a>
+							<a href="/shop/maincategory?seq=1"><i class="fas fa-ticket-alt"></i><span> 티켓/입장권</span></a>
 						</li>
 						<li>
-							<a href="/shop/maincategory?category=2"><i class="fab fa-font-awesome-flag"></i><span> 투어</span></a>
+							<a href="/shop/maincategory?seq=2"><i class="fab fa-font-awesome-flag"></i><span> 투어</span></a>
 						</li>
 						<li>
-							<a href="/shop/maincategory?category=3"><i class="fas fa-swimmer"></i><span> 아웃도어</span></a>
+							<a href="/shop/maincategory?seq=3"><i class="fas fa-swimmer"></i><span> 아웃도어</span></a>
 						</li>
 						<li>
-							<a href="/shop/maincategory?category=4"><i class="fas fa-hot-tub"></i><span> 스파/테라피</span></a>
+							<a href="/shop/maincategory?seq=4"><i class="fas fa-hot-tub"></i><span> 스파/테라피</span></a>
 						</li>
 						<li>
-							<a href="/shop/maincategory?category=5"><i class="fas fa-school"></i> 원데이클래스/체험</a>
+							<a href="/shop/maincategory?seq=5"><i class="fas fa-school"></i> 원데이클래스/체험</a>
 						</li>
 						<li>
-							<a href="/shop/maincategory?category=6"><i class="fas fa-glass-cheers"></i><span> 엔터테인먼트</a>
+							<a href="/shop/maincategory?seq=6"><i class="fas fa-glass-cheers"></i><span> 엔터테인먼트</a>
 						</li>
 					</ul>
 					
@@ -84,7 +84,7 @@
 				<div class="categories">
 					<div class="categories_wrap">
 						<c:forEach items="${categoryList }" var="category">
-							<a href="/shop/subcategory?category=${category.seq }" id="category${category.seq }" class="category">${category.name }</a>
+							<a href="/shop/subcategory?seq=${category.seq }" id="category${category.seq }" class="category">${category.name }</a>
 						</c:forEach>
 					</div>
 				</div>

@@ -63,10 +63,10 @@
 .search_area{
 	position:absolute;
 	font-size: 20px;
-	left: 40%;
+	left: 35%;
 	margin-top: 350px;
 	margin-left: 100px;
-}
+} 
 
 .banner_item:first-child{
 	left: 0;
@@ -104,10 +104,11 @@
 	right:-280px;
 }
 .item_list_wrap{
-	width: 1050px;
+	width: 1250px;
 	margin: 0 auto;
 	margin-top: 20px;
 }
+
 .item_list_area{
 	padding-top: 100px;
 	padding-bottom: 100px;
@@ -125,7 +126,7 @@
 } */
 .city_item{
  	position:relative; 
-	width: 300px;
+	width: 270px;
 	height: 340px;
 	background-size: 103%;
 /* 	margin-inline:10px; */
@@ -178,7 +179,7 @@
 	cursor: pointer;
 }
 .prod_item .prod_item_img:hover{
-	background-size: 103%;
+	background-size: 108%;
 } 
 .prod_item_title{
 	margin-top: 15px;

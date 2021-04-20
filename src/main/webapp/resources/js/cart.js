@@ -26,4 +26,37 @@ $(function(){
 			} 
 		})
 	})
+	
+	$("#select_all").change(function(){
+		if($("#select_all").prop("checked")){
+			$(".select_checked").prop("checked", true);
+			var sum = 0;
+				$(".cart_item").find("input[type='checkbox']:checked").each(function(){
+				sum += Number($(this).attr("data-value"));
+				$(".finalPrice span").html(numberWithCommas(sum)+"원");
+		
+			});
+		}
+		else{
+			$(".select_checked").prop("checked", false);
+			$(".finalPrice span").html("0원");
+		}
+	})
+	  	
+		$(".select_checked").change(function(){
+			if($(".select_checked").is(":checked")){
+				var sum = 0;
+				$(".cart_item").find("input[type='checkbox']:checked").each(function(){
+				sum += Number($(this).attr("data-value"));
+				$(".finalPrice span").html(numberWithCommas(sum)+"원");
+			})
+		}else{
+			$(".finalPrice span").html("0원");
+		}
+	})
+		
+	
+	function numberWithCommas(x){
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	}
 })

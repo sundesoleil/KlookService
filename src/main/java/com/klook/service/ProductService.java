@@ -87,4 +87,6 @@ public class ProductService {
 	public List<ProductVO> selectCityProd(Integer seq){
 		return mapper.selectCityProd(seq);
 	}
+
+
 }

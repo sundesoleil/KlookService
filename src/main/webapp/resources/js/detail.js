@@ -41,10 +41,40 @@ $(function(){
 		$(".final_point b").html(numberWithCommas(totalCount*finalPoint));
 	});
 	
+		$("#comment_input_btn").click(function(){
+		if($("#comment_content").val() == ""){
+			alert("댓글 내용을 입력하세요");
+			return;
+		}
+		// 서버로 전송
+		let data = {
+		  "kr_title":$("#comment_title").val(),
+		  "kr_content":$("#comment_content").val(),
+		  "kr_rate":$("#rating option:selected").val(),
+		  "kr_member_seq":$(".comment_input").attr("data-user-seq"),
+		  "kr_prod_seq":$("#kb_seq").attr("data-value")
+		}
+		console.log(JSON.stringify(data));
+		
+		$.ajax({
+			url:"/api/insert_review",
+			type:"post",
+			contentType:"application/json",
+			data:JSON.stringify(data),
+			success:function(data){
+				alert("댓글이 등록되었습니다");
+				location.reload(); // 댓글 등록시 새로 고침
+				$("#comment_content").val(""); 
+				$("#comment_title").val("");
+			},
+			error:function(data){
+				alert("댓글등록에 실패하였습니다");
+			}
+		})
+	})
 	
 
 	$("#add_cart").click(function(){
-		
 		
 		let data = {
 		"kb_count": totalCount,
@@ -53,6 +83,7 @@ $(function(){
 		"kb_member_seq":$("#kb_member_seq").attr("data-value"),
 		"kb_prod_seq":$("#kb_seq").attr("data-value")
 		}
+		
 
 		$.ajax({
 			url:"/shop/cart?member_seq="+$("#kb_member_seq").attr("data-value"),

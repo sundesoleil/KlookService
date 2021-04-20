@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 
 @Controller
 public class MemberController {
@@ -17,7 +18,6 @@ public class MemberController {
 			session.invalidate();
 			return "redirect:/";
 		}
-	
 	@GetMapping("/member/join")
 	public String getMemberJoin() {
 		return "/member/join";

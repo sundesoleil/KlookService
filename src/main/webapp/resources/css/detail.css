@@ -265,16 +265,16 @@
 	display:none;
 } 
 .review_area{
-	border-top: 1px solid #ccc;
+/* 	border-top: 1px solid #ccc; */
 	padding-top: 20px;
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 40px;
+	margin-bottom: 40px;
 }
 .review_title{
 	font-size: 25px;
 	margin-bottom: 20px;
 }
-.review_title i{
+.review_title i, .comment_input i{
 	color:#E55F33;
 }
 #rating{
@@ -324,7 +324,62 @@
 	font-weight: 500;
 	vertical-align: middle;
 }
-
 .all_review_list{
 	display:none;
+}
+.comment_input span{
+	font-size: 26px;
+	margin-top: 20px;
+	margin-top: 20px;
+}
+.comment_input{
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 40px;
+	padding-bottom: 15px;
+}
+#comment_title{
+	width: 98%;
+	font-size: 16px;
+	border:1px solid #ccc;
+	padding-top:10px;
+	padding-bottom: 10px;
+	border-radius: 5px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	font-family: 'ELAND_Choice_M';
+}
+#comment_title::placeholder{
+	padding-left: 5px;
+}
+#comment_content::placeholder{
+	padding-left:3px;
+	padding-top:3px;
+}
+#comment_content{
+	width: 98%;
+	font-size: 16px;
+	height: 80px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	border:1px solid #ccc;
+	font-family: 'ELAND_Choice_M';
+	border-radius: 5px;
+}
+.rate{
+	float: left;
+}
+#rating{
+	border:0;
+	margin-left: 5px;
+}
+#comment_input_btn{
+	float: right;
+	margin-right: 20px;
+	background-color: #F44F1B;
+	color: #fff;
+	border:0;
+	padding: 5px 10px;
+	cursor:pointer;
+	border-radius: 5px;
+	margin-top: -5px;
 }

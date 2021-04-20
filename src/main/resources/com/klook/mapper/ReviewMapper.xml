@@ -43,4 +43,19 @@
 		)b
 		ON a.kp_seq = b.kr_prod_seq
 	</select>
+	<insert id="insertReview">
+		INSERT INTO kl_review(
+			kr_title, 
+			kr_content, 
+			kr_rate, 
+			kr_member_seq, 
+			kr_prod_seq
+		)VALUES(
+			#{kr_title},
+			#{kr_content},
+			#{kr_rate},
+			#{kr_member_seq},
+			#{kr_prod_seq}
+		)
+	</insert>
 </mapper>

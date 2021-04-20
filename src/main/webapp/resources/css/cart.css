@@ -64,3 +64,32 @@
 .no_cart_msg img{
 	margin-bottom: 50px;
 }
+.final{
+	text-align: right;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 30px;
+	padding-bottom: 10px;
+	border-radius: 5px;
+	background-color: #fff;
+	width: 100%;
+}
+.final > p {
+	font-size: 18px;
+	margin-bottom: 40px;
+	margin-right: 20px;
+}
+.final > p > span{
+	font-weight: 600;
+	color:#FF602F;
+}
+.final a{
+	font-size: 20px;
+	background-color: #FF602F;
+	color:#fff;
+	padding: 10px 20px;
+	text-decoration:none;
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-top: 20px;
+}

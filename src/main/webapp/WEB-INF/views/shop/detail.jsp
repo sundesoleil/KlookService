@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
@@ -34,13 +35,13 @@
 				</p>
 				<p class="prod_name">
 				${product.kp_name }
-				<c:if test="${product.rate != null }">
+				<c:if test="${review.rate != null }">
 					<i class="fas fa-star"></i>
-					<span> ${product.rate }</span>
-				</c:if>
-				<c:if test="${product.rate == null }">
-					<span> 아직 평점이 없습니다 <i class="fas fa-sad-tear"></i></span>
+					<span> ${review.rate }</span>
 				</c:if> 
+				<c:if test="${review.rate == null }">
+					<span> 아직 평점이 없습니다 <i class="fas fa-sad-tear"></i></span>
+				</c:if>
 				</p>
 					<p class="prod_description">${product.kp_description }</p>
 				<p class="prod_notice">
@@ -117,15 +118,38 @@
 					<c:if test="${memberInfo != null }">
 					<div class="button_area">
 						<button id="add_cart" onclick="location.href='cart?member_seq=${cart.member_seq}'">장바구니 담기</button>
-						<button onclick="location.href='settlement/'" id="direct_booking">바로 예약하기</button>
+						<button onclick="location.href='shop/settlement/'" id="direct_booking">바로 결제하기</button>
 					</div>
 					</c:if>
 					<c:if test="${memberInfo == null }">
 						<div style="text-align:right; color:darkgray; margin-top:10px;">장바구니 기능과 예약 기능은 로그인 후 이용하실 수 있습니다.</div>
 					</c:if>
 				</div>
-				<c:if test="${review.rate != null }">
 				<div class="review_area">
+				<c:if test="${memberInfo != null}">
+				<div class="comment_input" data-user-seq="${memberInfo.seq }">
+					<span><i class="fas fa-check"></i> 후기작성</span><br><br>
+					<label>제목</label><br><input id="comment_title" placeholder="20자 이내로 입력해주세요" />
+					<br><label>내용</label><br><textarea id="comment_content"  placeholder="500자 이내로 입력해주세요" ></textarea>
+					<p class="rate">평점</p>
+						<select id="rating">
+							<option value="5">★★★★★</option>
+							<option value="4">★★★★☆</option>
+							<option value="3">★★★☆☆</option>
+							<option value="2">★★☆☆☆</option>
+							<option value="1">★☆☆☆☆</option>
+						</select>
+					<button id="comment_input_btn">등록</button>
+				</div>
+				</c:if>
+				<c:if test="${memberInfo == null}">
+					<div class="comment_input">
+						<span><i class="fas fa-check"></i> 후기작성</span><br><br>
+						<textarea id="comment_content" disabled placeholder="로그인 후에 작성하실 수 있습니다"></textarea>
+						<!-- <button id="comment_input_btn" disabled>등록</button> -->
+					</div>
+				</c:if>
+				<c:if test="${review.rate != null }">
 					<div class="review_title"><i class="fas fa-check"></i> 최신후기</div>
 					<div class="review_list">
 						<c:forEach items="${reviewList }" var="review">	
@@ -140,7 +164,7 @@
 								</c:forEach> 
 									<span id="kr_title">${review.kr_title}</span>
 									<p id="kr_content">${review.kr_content }</p>
-									<div><fmt:formatDate value="${review.kr_reg_date }" pattern="yy-MM-dd" /></div>
+									<div><fmt:formatDate value="${review.kr_reg_date }" pattern="yyyy년 MM월 dd일" /></div>
 								</div>
 							</div>
 						</c:forEach>
@@ -169,8 +193,8 @@
 					<button id="all_review_hide" style="display:none;">
 						<i class="fas fa-angle-right"></i> 리뷰 목록 접기
 					</button>
-				</div>	
 				</c:if>
+				</div>
 		</section>
 	</div>
 	<%@include file="/WEB-INF/views/includes/footer.jsp" %>

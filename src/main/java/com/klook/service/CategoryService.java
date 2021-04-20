@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.klook.mapper.CategoryMapper;
 import com.klook.vo.CategoryVO;
+import com.klook.vo.CityVO;
 
 @Service
 public class CategoryService {
@@ -16,5 +17,10 @@ public class CategoryService {
 	public List<CategoryVO> selectCategories(){
 		return mapper.selectCategories();
 	}
-
+	public List<CategoryVO> selectSubCateBySeq(Integer seq) {
+		return mapper.selectSubCateBySeq(seq);
+	}
+	public List<CategoryVO> selectMainCateBySeq(Integer seq) {
+		return mapper.selectMainCateBySeq(seq);
+	}
 }
