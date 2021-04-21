@@ -8,6 +8,6 @@ import com.klook.vo.CityVO;
 
 @Mapper
 public interface CityMapper {
-	public List<CityVO> selectCityBySeq(Integer seq);
+	public List<CityVO> selectCityBySeq(Integer seq, String keyword);
 	public List<CityVO> selectCities();
 }

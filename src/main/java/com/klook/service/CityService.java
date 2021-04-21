@@ -14,8 +14,8 @@ public class CityService {
 	@Autowired
 	CityMapper mapper;
 	
-	public List<CityVO> selectCityBySeq(Integer seq) {
-		return mapper.selectCityBySeq(seq);
+	public List<CityVO> selectCityBySeq(Integer seq, String keyword) {
+		return mapper.selectCityBySeq(seq, keyword);
 	}
 
 	public List<CityVO> selectCities(){

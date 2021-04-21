@@ -12,4 +12,5 @@ public interface MemberMapper {
 	public SimpleMemberVO selectSimpleMemberInfo(LoginVO vo);
 	public void insertMemberInfo(MemberVO vo);
 	public Integer selectUserCntByEmail(String email);
+	public void updateMemberInfo(MemberVO vo);
 }

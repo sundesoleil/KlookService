@@ -158,6 +158,7 @@
 		INNER JOIN kl_city d
 		ON c.kp_city_seq = d.kc_seq
 		WHERE kc_seq = #{seq}
+		OR kc_name = #{keyword}
 		ORDER BY kp_reg_date DESC
 	</select>
 </mapper>

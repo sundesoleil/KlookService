@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -73,7 +74,7 @@ public class ShopController {
 
 		List<CartVO> cartList = cartService.selectCarts(member_seq);
 		session.setAttribute("cartList", cartList);
-
+		
 		return "/shop/cart";
 	}
 
@@ -110,15 +111,17 @@ public class ShopController {
 	}
 
 	@GetMapping("/shop/city")
-	public String getCityProd(@RequestParam Integer seq, Model model, HttpSession session) {
-
-		List<CityVO> city = cityService.selectCityBySeq(seq);
+	public String getCityProd(@RequestParam @Nullable Integer seq, @Nullable String keyword, HttpSession session) {
+		
+		
+		List<CityVO> city = cityService.selectCityBySeq(seq, keyword);
 		session.setAttribute("city", city);
 
-		List<ProductVO> cityProdList = prodService.selectCityProd(seq);
+		List<ProductVO> cityProdList = prodService.selectCityProd(seq, keyword);
 		session.setAttribute("cityProdList", cityProdList);
 
 		return "/shop/city";
 	}
-
 }
+
+

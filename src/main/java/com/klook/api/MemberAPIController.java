@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,6 +54,7 @@ public class MemberAPIController {
 			
 			SimpleMemberVO memberInfo = service.selectSimpleMemberInfo(vo);
 			session.setAttribute("memberInfo", memberInfo);
+
 		}
 		else {
 			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
@@ -71,6 +73,40 @@ public class MemberAPIController {
 		
 		resultMap.put("status", "success");
 		resultMap.put("message", "가입되었습니다.");
+		
+		return resultMap;
+	}
+	
+	@PostMapping("/api/modify")
+	public Map<String, String> postMemberModify(@RequestBody MemberVO vo){
+		Map<String, String> resultMap = new LinkedHashMap<String, String>();
+		
+		if(vo.getKm_pwd() != null && vo.getKm_pwd() != "") {
+			LoginVO login = new LoginVO();
+			login.setEmail(vo.getKm_email());
+			try {
+				login.setPwd(AESAlgorithm.Encrypt(vo.getKm_pwd()));
+			}catch(Exception e) {e.printStackTrace();}
+			
+			boolean authPwd = service.memberLogin(login);
+			
+			if(!authPwd) {
+				resultMap.put("result", "auth failed");
+				resultMap.put("message", "기존 비밀번호가 일치하지 않습니다.");
+				return resultMap;
+			}
+			try {
+				vo.setConfirm_pwd(AESAlgorithm.Encrypt(vo.getConfirm_pwd()));
+			}
+			catch(Exception e) {e.printStackTrace();}
+			service.updateMemberInfo(vo);
+			resultMap.put("result", "success");
+			resultMap.put("message", "변경되었습니다.");
+			return resultMap;
+		}
+		service.updateMemberInfo(vo);
+		resultMap.put("result", "success");
+		resultMap.put("message", "변경되었습니다.");
 		
 		return resultMap;
 	}

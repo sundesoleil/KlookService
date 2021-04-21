@@ -84,8 +84,9 @@ public class ProductService {
 	public List<ProductVO> selectSubCateList(Integer category){
 		return mapper.selectSubCateList(category);
 	}
-	public List<ProductVO> selectCityProd(Integer seq){
-		return mapper.selectCityProd(seq);
+	public List<ProductVO> selectCityProd(Integer seq, String keyword){
+		
+		return mapper.selectCityProd(seq, keyword);
 	}
 
 

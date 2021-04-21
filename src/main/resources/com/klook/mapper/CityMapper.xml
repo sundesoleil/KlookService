@@ -5,6 +5,7 @@
 		SELECT kc_name FROM
 		kl_city 
 		WHERE kc_seq = #{seq}
+		OR kc_name = #{keyword}
 	</select>
 	<select id="selectCities" resultType="com.klook.vo.CityVO">
 		SELECT * FROM kl_city

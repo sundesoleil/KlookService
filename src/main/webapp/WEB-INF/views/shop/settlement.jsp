@@ -16,7 +16,22 @@
 
 <body>
 	<%@include file="/WEB-INF/views/includes/header.jsp" %>	
-	
+	<div class="main">
+	<div class="cart_area">
+		<h1>예약정보입력</h1>
+		<div class="booking_info">
+			
+		</div>
+		<h1>결제진행</h1>
+		<div class="settlement_info">
+			
+		</div>
+		<div class="final">
+			<p class="finalPrice">총 금액 <span>${settlement.amount }</span></p>
+			<p><a href="#">결제하기</a></p>
+		</div>
+</div>
+</div>
 <%@include file="/WEB-INF/views/includes/footer.jsp" %>
 </body>
 </html>

@@ -38,4 +38,7 @@ public class MemberService {
 	public boolean userEmailCheck(String email) {
 		return !(mapper.selectUserCntByEmail(email) > 0);
 	}
+	public void updateMemberInfo(MemberVO vo) {
+		mapper.updateMemberInfo(vo);
+	}
 }

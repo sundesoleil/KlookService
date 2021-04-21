@@ -5,10 +5,15 @@
 		SELECT COUNT(*) FROM kl_member WHERE km_email=#{email} AND km_pwd=#{pwd}
 	</select>
 	<select id="selectSimpleMemberInfo" resultType="com.klook.vo.SimpleMemberVO">
-		SELECT km_email AS email, km_name AS name, km_seq AS seq
+		SELECT km_email AS email, km_name AS name, km_phone AS phone, km_seq AS seq
 		FROM kl_member
 		WHERE km_email=#{email} AND km_pwd=#{pwd}
 	</select>
+<!-- 	<select id="selectMemberInfo" resultType="com.klook.vo.MemberVO">
+		SELECT km_email, km_pwd, km_name, km_phone
+		FROM kl_member
+		WHERE km_seq=#{km_seq}
+	</select> -->
 	<insert id="insertMemberInfo">
 		INSERT INTO kl_member(
 			km_email,
@@ -31,4 +36,16 @@
 		SELECT COUNT(*) FROM kl_member 
 		WHERE km_email=#{email}
 	</select>
+	<update id="updateMemberInfo">
+		UPDATE kl_member
+		SET 
+			<if test = "confirm_pwd != '' and confirm_pwd != null">
+				km_pwd = #{confirm_pwd},
+			</if>  
+			km_name=#{km_name}, 
+			km_email=#{km_email}, 
+			km_phone=#{km_phone}
+		WHERE 
+			km_seq = #{km_seq}
+	</update>
 </mapper>

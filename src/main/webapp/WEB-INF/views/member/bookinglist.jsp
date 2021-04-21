@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- 결제완료한 상품 리스트들 -->
+	<h1>예약내역</h1>
 </body>
 </html>

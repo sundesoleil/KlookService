@@ -38,21 +38,21 @@ $(function(){
 	setInterval(function(){
 		$("#next").trigger("click");
 	}, 5000)
-	
-
+		
+		
 	$("#search_input").keydown(function(e){
+		let keyword = $("#search_input").val();
+		keyword = decodeURI(keyword); 
+		
 		if(e.keyCode == 13){
 			$("#search_input").trigger("click");
-			if($("#search_input").val() === '서울'){location.href = "/shop/city?seq=2"}
-			if($("#search_input").val() === '제주도'){location.href = "/shop/city?seq=3"}
-			if($("#search_input").val() === '부산'){location.href = "/shop/city?seq=4"}
-			if($("#search_input").val() === '경주'){location.href = "/shop/city?seq=5"}
-			if($("#search_input").val() === '강원도'){location.href = "/shop/city?seq=6"}
-			if($("#search_input").val() === '전라도'){location.href = "/shop/city?seq=7"}
-			if($("#search_input").val() === '대구'){location.href = "/shop/city?seq=8"}
-			if($("#search_input").val() === '울릉도'){location.href = "/shop/city?seq=8"}
+			location.href='/shop/city?keyword=' + keyword
 			}
 	
 		})
 
+	
+
+	
+	
 })
