@@ -3,14 +3,12 @@
 <mapper namespace="com.klook.mapper.SettlementMapper">
 	<insert id="insertSettlementInfo">
 		INSERT INTO kl_settlement(
-			ks_method,
 			ks_amount,
 			ks_booking_date,
 			ks_member_seq,
 			ks_prod_seq
 		)
 		VALUES(
-			#{ks_method},
 			#{ks_amount},
 			#{ks_booking_date},
 			#{ks_member_seq},

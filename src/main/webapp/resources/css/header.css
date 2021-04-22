@@ -213,3 +213,24 @@ header{
 	height: 10%;
 	margin-left: 20px;
 }
+.kakao{
+	margin-top: -25px;
+}
+#profile_img{
+	border-radius: 99px;
+	width: 40px;
+	height:40px;
+	margin-right: 10px;
+	margin-bottom: -13px;
+}
+#kakao_logout{
+	border: 1px solid #FF602F;
+	color: #FF602F;
+	border-radius: 30px;
+	padding: 5px;
+	text-align: center;
+}
+#kakao_logout:hover{
+	background-color: #FF602F;
+	color:#fff;
+}

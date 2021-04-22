@@ -75,3 +75,18 @@
 .options_area{
 	margin-bottom: 20px;
 }
+#kakao_login{
+	display: block;
+	text-align: center;
+	width: 100%;
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 5px;
+	margin-top: 10px;
+	outline: none;
+	text-decoration:none;
+	background-color: #FFD400;
+	color:#964B00;
+	font-weight: 600;
+}

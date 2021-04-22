@@ -17,7 +17,7 @@
 	<nav id="gnb">
 			<div class="gnb_top">
 				<div class="user_menu">
-					<c:if test="${memberInfo == null}">
+					<c:if test="${memberInfo == null && member_id == null}">
 						<a href="/member/join">회원가입</a>
 						<span>|</span>
 						<a href="/member/login">로그인</a>
@@ -31,6 +31,18 @@
 						<a href="/member/logout" id="logout_btn">로그아웃</a>
 						<span>|</span>
 					</c:if>
+			
+					<c:if test="${member_id != null}">
+					<div class="kakao">
+						<img id="profile_img" src="${member_img }" />
+						<a href="#" id="user_name">${member_id} 님 반갑습니다 :)</a>
+						<a id="kakao_logout" 
+						href="/member/logout">
+							로그아웃
+						</a>
+						</div>
+					</c:if>
+		
 				
 					
 				</div>
@@ -88,7 +100,7 @@
 						</c:forEach>
 					</div>
 				</div>
-				</div>
+				
 	</nav> 
 	</header>
 </body>

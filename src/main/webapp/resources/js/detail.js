@@ -46,6 +46,7 @@ $(function(){
 			alert("댓글 내용을 입력하세요");
 			return;
 		}
+		
 		// 서버로 전송
 		let data = {
 		  "kr_title":$("#comment_title").val(),
@@ -100,7 +101,16 @@ $(function(){
 			}
 		})
 	});
-	
+	/*여기서 선언한 변수들을 jsp 에서 어떻게 사용할 지 찾아보기! */
+	$("#direct_booking").click(function(){
+		var amount = finalPrice * totalCount;
+		var bookingDate = $("#datePicker").val();
+		var memberSeq = $("#kb_member_seq").attr("data-value");
+		var productSeq = $("#kb_seq").attr("data-value");
+		
+		alert(memberSeq);
+		location.href = 'settlement';
+	})
 })
 
 function newFunction() {

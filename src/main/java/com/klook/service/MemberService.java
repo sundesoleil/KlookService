@@ -34,7 +34,6 @@ public class MemberService {
 		vo.setKm_pwd(password);
 		mapper.insertMemberInfo(vo);
 	}
-
 	public boolean userEmailCheck(String email) {
 		return !(mapper.selectUserCntByEmail(email) > 0);
 	}

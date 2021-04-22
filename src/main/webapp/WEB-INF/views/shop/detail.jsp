@@ -115,18 +115,18 @@
 							<span>구매 시 <b>0</b>원 적립</span>
 						</div>	
 					</div>
-					<c:if test="${memberInfo != null }">
+					<c:if test="${memberInfo != null || member_id != null}">
 					<div class="button_area">
 						<button id="add_cart" onclick="location.href='cart?member_seq=${cart.member_seq}'">장바구니 담기</button>
-						<button id="direct_booking" onclick="location.href='settlement?member_seq=${settlement.member_seq}'">바로 결제하기</button>
+						<button id="direct_booking">바로 결제하기</button>
 					</div>
 					</c:if>
-					<c:if test="${memberInfo == null }">
+					<c:if test="${memberInfo == null && member_id == null}">
 						<div style="text-align:right; color:darkgray; margin-top:10px;">장바구니 기능과 예약 기능은 로그인 후 이용하실 수 있습니다.</div>
 					</c:if>
 				</div>
 				<div class="review_area">
-				<c:if test="${memberInfo != null}">
+				<c:if test="${memberInfo != null || member_id != null}">
 				<div class="comment_input" data-user-seq="${memberInfo.seq }">
 					<span><i class="fas fa-check"></i> 후기작성</span><br><br>
 					<label>제목</label><br><input id="comment_title" placeholder="20자 이내로 입력해주세요" />
@@ -142,7 +142,7 @@
 					<button id="comment_input_btn">등록</button>
 				</div>
 				</c:if>
-				<c:if test="${memberInfo == null}">
+				<c:if test="${memberInfo == null && member_id == null}} ">
 					<div class="comment_input">
 						<span><i class="fas fa-check"></i> 후기작성</span><br><br>
 						<textarea id="comment_content" disabled placeholder="로그인 후에 작성하실 수 있습니다"></textarea>
@@ -156,7 +156,7 @@
 						<div class="review_item">
 							<div class="review_user">
 								<img id="user_icon" src="/resources/images/user.png" />
-								<p>${review.member_name }</p>
+									<p>${review.member_name }</p>
 							</div>	
 							<div class="review_content">
 								<c:forEach var="rating" items="${ ratingOptions }" varStatus="status" begin="1" end="${ review.kr_rate }">

@@ -70,7 +70,7 @@ public class ShopController {
 	}
 
 	@GetMapping("/shop/cart")
-	public String getShopCart(@RequestParam Integer member_seq, Model model, HttpSession session) {
+	public String getShopCart(@RequestParam Integer member_seq, HttpSession session) {
 
 		List<CartVO> cartList = cartService.selectCarts(member_seq);
 		session.setAttribute("cartList", cartList);
@@ -79,7 +79,7 @@ public class ShopController {
 	}
 
 	@GetMapping("/shop/settlement") 
-	public String getSettlement() {
+	public String getSettlement() {	
 		 return "/shop/settlement";
 	 }
 

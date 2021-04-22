@@ -18,7 +18,7 @@
 	<%@include file="/WEB-INF/views/includes/header.jsp" %>	
 	<div class="main">
 	<div class="cart_area">
-	<c:if test="${cartList.size() > 0 }">
+	<c:if test="${cartList.size() > 0}">
 		<h1>장바구니</h1>
 		<div class="check_all">
 			<input data-value="${cart.kb_price }" type="checkbox" id="select_all" />

@@ -17,4 +17,5 @@ public class MemberVO {
 	private Integer km_terms_agree;
 	private Integer km_info_agree;
 	private String confirm_pwd;
+	private String member_name;
 }

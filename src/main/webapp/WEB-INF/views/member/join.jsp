@@ -11,6 +11,11 @@
 	<link rel="icon" href="/resources/images/favicon.png" />
 	<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="/resources/js/join.js"></script>
+	<script>
+		<c:if test="${memberInfo != null || member_id != null}">
+			location.href="/";
+		</c:if>
+	</script>
 </head>
 <body>
 	<%@include file="/WEB-INF/views/includes/header.jsp" %>
