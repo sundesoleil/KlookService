@@ -1,9 +1,12 @@
 $(function(){
 	
-	$("#direct_booking").click(function(){
+
+
+/*	$("#direct_booking").click(function(){
 		let data = {
 			"ks_amount": finalPrice * totalCount,
 			"ks_booking_date": $("#datePicker").val(),
+			"ks_payment":1,
 			"ks_member_seq":$("#kb_member_seq").attr("data-value"),
 			"ks_prod_seq": $("#kb_seq").attr("data-value")
 			}
@@ -23,6 +26,7 @@ $(function(){
 				console.log(e);
 			}
 		})
-	})
+	})*/
+
 	
 })

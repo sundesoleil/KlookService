@@ -12,7 +12,6 @@ input{
 	padding-top:7px;
 	padding-right: 25px;
 }
-	
 .booking_info > h1,
 .settlement_info > h1{
 	font-size: 30px;
@@ -25,10 +24,23 @@ input{
 	margin-top: 10px;
 	font-size: 18px;
 }
+.booking_info{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.booking_info p{
+	margin-top: 30px;
+}
+.booking_info p:last-child{
+	margin-bottom: 30px;
+}
 .settlement_area{
 	padding-left:30px;
 	margin-bottom: 30px;
 	height: 600px;
+}
+#pay_info{
+	margin-top: 40px;
 }
 .booking_info{
 	border-bottom: 1px solid #ccc;
@@ -46,6 +58,8 @@ input{
 	margin-top: 15px;
 	color:#277ac5;
 	border-radius: 10px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 #card_save{
 	margin-top: 10px;
@@ -55,12 +69,22 @@ input{
 	margin-right: 15px;
 }
 .finalPrice{
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 #payment{
+	float: right;
 	padding: 10px;
 	border-radius: 10px;
 	background-color: #ff602f;
 	color: #fff;
 	text-decoration: none;
+}
+.notice2{
+	background-color: #fff;
+	color: #ff602f;
+	padding: 10px;
+	margin-top: 100px;
+	font-weight: 600;
+	font-size: 18px;
+	text-align: center;
 }

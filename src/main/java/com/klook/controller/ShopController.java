@@ -77,12 +77,26 @@ public class ShopController {
 		
 		return "/shop/cart";
 	}
-
 	@GetMapping("/shop/settlement") 
-	public String getSettlement() {	
+	public String getSettlement(@RequestParam("member_seq") Integer member_seq, @RequestParam("prod_seq") Integer prod_seq, Model model) {	
+		
+		
+		 SettlementVO settlement = settlementService.selectSettlementBySeq(member_seq, prod_seq);
+		 model.addAttribute("settlement", settlement);
+		 
+		 
 		 return "/shop/settlement";
 	 }
 
+	@GetMapping("/shop/bookinglist")
+	public String getBookingList(@RequestParam Integer seq, HttpSession session) {
+		
+		List<SettlementVO> bookingList = settlementService.selectSettlements(seq);
+		session.setAttribute("bookingList", bookingList);
+		
+		return "/shop/bookinglist";
+		
+	}
 	@GetMapping("/shop/subcategory")
 	public String getSubCategoryProd(@RequestParam Integer seq, Model model, HttpSession session) {
 

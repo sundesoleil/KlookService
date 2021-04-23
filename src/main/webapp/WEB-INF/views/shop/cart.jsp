@@ -39,7 +39,7 @@
 		</c:forEach>
 		<div class="final">
 			<p class="finalPrice">총 금액 <span>0</span></p>
-			<p><a href="/shop/settlement">바로 결제</a></p>
+			<p><a href="#">바로 결제</a></p>
 		</div>
 	</c:if>
 		<c:if test="${cartList.size() == 0 }">

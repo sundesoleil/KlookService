@@ -1,0 +1,52 @@
+/*member_list.css*/
+.wrap{
+	width: 60%;
+	margin: 0 auto;
+}
+.contents_header{
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+}
+.member_contents{
+	margin-top: 30px;
+}
+.member_item{
+	overflow: hidden;
+	border-bottom: 1px solid #eee;
+	position: relative;
+}
+.delete{
+	position: absolute;
+	right:65px; 
+	top: 20px;
+	color: #333;
+}
+.contents_header div{
+	font-weight: 500;
+}
+.contents_header div, 
+.member_item div{
+	text-align: center;
+	padding: 20px 10px;
+	float: left;
+	font-size: 14px;
+}
+.contents_header div:nth-child(1),
+.member_item div:nth-child(1){
+	width: 100px;
+}
+.contents_header div:nth-child(2),
+.member_item div:nth-child(2){
+	width: 260px;
+
+}
+.contents_header div:nth-child(3),
+.member_item div:nth-child(3){
+	width: 260px;
+
+}
+.contents_header div:nth-child(4),
+.member_item div:nth-child(4){
+	width: 260px;
+}
+

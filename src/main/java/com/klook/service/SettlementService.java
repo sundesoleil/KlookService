@@ -16,10 +16,13 @@ public class SettlementService {
 	public void insertSettlementInfo(SettlementVO vo) {
 		mapper.insertSettlementInfo(vo);
 	}
-	public SettlementVO selectSettlementBySeq(Integer seq) {
-		return mapper.selectSettlementBySeq(seq);
+	public SettlementVO selectSettlementBySeq(Integer member_seq, Integer prod_seq) {
+		return mapper.selectSettlementBySeq(member_seq, prod_seq);
 	}
 	public List<SettlementVO> selectSettlements(Integer seq){
 		return mapper.selectSettlements(seq);
+	}
+	public void deleteSettlement(Integer seq) {
+		mapper.deleteSettlement(seq);
 	}
 }

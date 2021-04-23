@@ -12,7 +12,7 @@ $(function(){
 			contentType:"application/json",
 			data:JSON.stringify(data),
 			success:function(result){
-				location.href="/";
+				location.reload();
 			},
 			error:function(error){
 				alert(error.responseJSON.message);

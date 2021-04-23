@@ -44,6 +44,7 @@ public class ShopAPIController {
 		return resultMap;
 	}
 
+
 	@DeleteMapping("/shop/cart/{seq}")
 	public Map<String, String> deleteCart(@PathVariable Integer seq){
 		Map<String, String> resultMap = new LinkedHashMap<String, String>();
@@ -77,18 +78,28 @@ public class ShopAPIController {
 		return resultMap;
 	}
 
-	/*
-	 * @PostMapping("/shop/settlement") public Map<String, String>
-	 * postShopSettlement(@RequestBody SettlementVO vo){
-	 * 
-	 * Map<String, String> resultMap = new LinkedHashMap<String, String>();
-	 * 
-	 * settlementService.insertSettlementInfo(vo);
-	 * 
-	 * resultMap.put("status", "success"); resultMap.put("message",
-	 * "결제화면으로 이동합니다.");
-	 * 
-	 * return resultMap; }
-	 */
+	 @PostMapping("/shop/settlement") public Map<String, String>
+	 postShopSettlement(@RequestBody SettlementVO vo){
+	 
+	 Map<String, String> resultMap = new LinkedHashMap<String, String>();
+	  
+	 settlementService.insertSettlementInfo(vo);
+	 
+	 resultMap.put("status", "success"); 
+	 resultMap.put("message","결제화면으로 이동합니다.");
+	 
+	 return resultMap; 
+	 }
+	 @DeleteMapping("/shop/settlement/{seq}")
+		public Map<String, String> deleteSettlement(@PathVariable Integer seq){
+			Map<String, String> resultMap = new LinkedHashMap<String, String>();
+			
+			resultMap.put("status", "success");
+			resultMap.put("message", "삭제되었습니다.");
+			
+			settlementService.deleteSettlement(seq);
+			
+			return resultMap;
+		}
 
 }

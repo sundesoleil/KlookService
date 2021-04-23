@@ -117,8 +117,8 @@
 					</div>
 					<c:if test="${memberInfo != null || member_id != null}">
 					<div class="button_area">
-						<button id="add_cart" onclick="location.href='cart?member_seq=${cart.member_seq}'">장바구니 담기</button>
-						<button id="direct_booking">바로 결제하기</button>
+						<button id="add_cart">장바구니 담기</button>
+						<button id="direct_booking" onclick="location.href='/shop/settlement'">바로 결제하기</button>
 					</div>
 					</c:if>
 					<c:if test="${memberInfo == null && member_id == null}">

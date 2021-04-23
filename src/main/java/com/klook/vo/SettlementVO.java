@@ -16,4 +16,5 @@ public class SettlementVO {
 	private Integer ks_payment;
 	private Integer ks_prod_seq;
 	private String member_name;
+	private String product_name;
 }

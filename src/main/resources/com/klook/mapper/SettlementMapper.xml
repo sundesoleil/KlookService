@@ -16,14 +16,24 @@
 		)
 	</insert>
 	<select id="selectSettlementBySeq" resultType="com.klook.vo.SettlementVO">
-		SELECT *
-		FROM kl_settlement
-		WHERE ks_member_seq = #{seq} 
+		SELECT c.*, d.kp_name AS product_name FROM
+		(
+		SELECT a.*, b.km_name AS member_name
+		FROM kl_settlement a
+		INNER JOIN
+		kl_member b
+		ON a.ks_member_seq = b.km_seq
+		)c 
+		INNER JOIN
+		kl_product d
+		ON c.ks_prod_seq = d.kp_seq
+		WHERE ks_member_seq = #{member_seq} AND
+		ks_prod_seq = #{prod_seq}
 	</select>
 	<select id="selectSettlements" resultType="com.klook.vo.SettlementVO">
 		SELECT c.*, d.km_name AS member_name FROM
 		(
-		SELECT a.*, b.kp_name AS prod_name
+		SELECT a.*, b.kp_name AS product_name
 		FROM kl_settlement a
 		INNER JOIN 
 		kl_product b
@@ -34,4 +44,7 @@
 		ON c.ks_member_seq = d.km_seq
 		WHERE km_seq = #{seq}
 	</select>
+	<delete id="deleteSettlement">
+		DELETE FROM kl_settlement WHERE ks_seq = #{seq}
+	</delete>
 </mapper>

@@ -101,15 +101,32 @@ $(function(){
 			}
 		})
 	});
-	/*여기서 선언한 변수들을 jsp 에서 어떻게 사용할 지 찾아보기! */
+	
 	$("#direct_booking").click(function(){
-		var amount = finalPrice * totalCount;
-		var bookingDate = $("#datePicker").val();
-		var memberSeq = $("#kb_member_seq").attr("data-value");
-		var productSeq = $("#kb_seq").attr("data-value");
-		
-		alert(memberSeq);
-		location.href = 'settlement';
+
+
+	let data = {	
+		"ks_booking_date": $("#datePicker").val(),
+		"ks_amount": finalPrice * totalCount,
+		"ks_member_seq":$("#kb_member_seq").attr("data-value"),
+		"ks_prod_seq":$("#kb_seq").attr("data-value")
+		}
+
+		$.ajax({
+			url:"/shop/settlement?member_seq=" +  $("#kb_member_seq").attr("data-value") + "&prod_seq=" + $("#kb_seq").attr("data-value"),
+			type:"post",
+			contentType:"application/json",
+			data:JSON.stringify(data),
+			success:function(result){
+				alert(result.message);
+				location.href = "/shop/settlement?member_seq=" +  $("#kb_member_seq").attr("data-value") + "&prod_seq=" + $("#kb_seq").attr("data-value");
+			},
+			error:function(e){
+				alert("에러");
+				console.log(e);
+			}
+		})
+
 	})
 })
 

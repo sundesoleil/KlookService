@@ -10,5 +10,6 @@ import com.klook.vo.SettlementVO;
 public interface SettlementMapper {
 	public void insertSettlementInfo(SettlementVO vo);
 	public List<SettlementVO> selectSettlements(Integer seq);
-	public SettlementVO selectSettlementBySeq(Integer seq);
+	public SettlementVO selectSettlementBySeq(Integer member_seq, Integer prod_seq);
+	public void deleteSettlement(Integer seq);
 }

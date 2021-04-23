@@ -43,7 +43,7 @@
 			<div class="search_area">
 				<input type="text" id="search_input" placeholder="도시 이름을 검색해보세요" />
 				<button id="search_btn">
-					<img src="/resources/images/DM_20210324195650_057.PNG" />
+					<i class="fas fa-search fa-2x"></i>
 				</button>
 			</div>
 		</section>
