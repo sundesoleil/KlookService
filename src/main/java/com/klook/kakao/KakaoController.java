@@ -53,12 +53,12 @@ public class KakaoController {
 		JsonNode access_token = kakaoRestApi.getKakaoAccessToken(code);
 		JsonNode userInfo = KakaoUserInfo.getKakaoUserInfo(access_token.get("access_token"));
 		 
-		// Get id
+		
          String member_id = userInfo.get("id").asText();
          String member_name = null;
          String member_img = null;
         
-         // 유저정보 카카오에서 가져오기 Get properties
+         // 유저정보 카카오에서 가져오기 
          JsonNode properties = userInfo.path("properties");
          JsonNode kakao_account = userInfo.path("kakao_account");
          member_name = properties.path("nickname").asText();

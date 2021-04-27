@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%-- <%
+<%
 	response.setHeader("Cache-Control", "no-cache, no-store, must_revalidate");
 	response.setHeader("Pragma", "no-cache");
 	response.setHeader("Expires", "0");
- %> --%>
+ %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +18,6 @@
 	<script src="/resources/js/main.js"></script>
 	
 	<link rel="icon" href="/resources/images/favicon.png" />
-	
 	<link rel="stylesheet" href="/resources/css/reset.css" />
 	<link rel="stylesheet" href="/resources/assets/slick/slick.css" />
 	<link rel="stylesheet" href="/resources/assets/slick/slick-theme.css" />

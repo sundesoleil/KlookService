@@ -15,8 +15,6 @@ public class MemberService {
 	MemberMapper mapper;
 	
 	public boolean memberLogin(LoginVO vo) {
-		/* if (mapper.memberLogin(vo) == 1 return true;
-		 else return false; */
 		return mapper.memberLogin(vo) == 1; 
 	}
 	

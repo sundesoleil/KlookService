@@ -22,9 +22,6 @@
 			location.href="/";
 		</c:if>
 	</script>
-
-		
-
 </head>
 <body>
 <%@include file = "/WEB-INF/views/includes/header.jsp" %>
