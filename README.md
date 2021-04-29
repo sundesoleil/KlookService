@@ -34,8 +34,8 @@ Java, Spring Boot, MySQL, mybatis, Ajax, jquery
 
 ![localhost_8092_shop_detail_prod_seq=1 (2)](https://user-images.githubusercontent.com/72296755/116493126-fe6eab00-a8d8-11eb-8d75-8765a4ccc7b3.png)
 
--> 로그인을 하지 않았을 경우, 장바구니/ 예약 / 리뷰 작성 불가능
--> 상품명 옆 별점은 회원들의 별점을 평균 낸 수치를 표시
+* 로그인을 하지 않았을 경우, 장바구니/ 예약 / 리뷰 작성 불가능
+* 상품명 옆 별점은 회원들의 별점을 평균 낸 수치를 표시
 
 5. 장바구니
 
