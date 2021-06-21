@@ -54,5 +54,5 @@ Java, Spring Boot, MySQL, mybatis, Ajax, jquery
 ### 6. 예약
 
 ![image](https://user-images.githubusercontent.com/72296755/116493677-2dd1e780-a8da-11eb-8a65-08ae496d384b.png)
--> 예약자 이름, 예약 상품, 예약 날짜, 금액 정보 넘긴 후 카드 정보 받기(아직 결제 시스템은 구현하지 않은 상태)
+-> 예약자 이름, 예약 상품, 예약 날짜, 금액 정보 넘긴 후 카드 정보 받기(실제 결제 진행 X)
 
